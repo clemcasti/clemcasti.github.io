@@ -401,22 +401,42 @@ class Component extends DCLogic {
     { id: 'cloture', label: 'Cadre 11 · Références' },
   ];
 
-  componentDidMount() {
-    this.io = new IntersectionObserver((entries) => {
-      let best = null;
-      entries.forEach((e) => {
-        if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
-      });
-      if (this.reveal) this.reveal();
-      if (best) {
-        const i = this.sections.findIndex((s) => s.id === best.target.id);
-        if (i >= 0 && i !== this.state.active) this.setState({ active: i });
+  // Repere la section courante a partir de la position de defilement.
+  // Les extremites sont traitees a part : une premiere ou une derniere section
+  // plus courte que l'ecran ne peut jamais atteindre le milieu du viewport,
+  // et resterait donc invisible pour une detection par intersection seule.
+  updateActive() {
+    const y = window.scrollY || window.pageYOffset || 0;
+    const vh = window.innerHeight;
+    const docH = Math.max(
+      document.documentElement.scrollHeight,
+      document.body ? document.body.scrollHeight : 0
+    );
+    const maxScroll = docH - vh;
+    let idx = 0;
+
+    if (y <= 2) {
+      idx = 0;
+    } else if (maxScroll > 0 && y >= maxScroll - 2) {
+      idx = this.sections.length - 1;
+    } else {
+      const line = y + vh * 0.4;
+      for (let i = 0; i < this.sections.length; i++) {
+        const el = document.getElementById(this.sections[i].id);
+        if (!el) continue;
+        if (line >= el.getBoundingClientRect().top + y) idx = i;
       }
-    }, { rootMargin: '-35% 0px -45% 0px', threshold: [0, 0.25, 0.5, 1] });
-    this.sections.forEach((s) => {
-      const el = document.getElementById(s.id);
-      if (el) this.io.observe(el);
-    });
+    }
+    if (idx !== this.state.active) this.setState({ active: idx });
+  }
+
+  componentDidMount() {
+    this.onActiveScroll = () => { this.updateActive(); };
+    window.addEventListener('scroll', this.onActiveScroll, { passive: true });
+    window.addEventListener('resize', this.onActiveScroll, { passive: true });
+    // les images modifient la hauteur des sections en arrivant : on recalcule
+    window.addEventListener('load', this.onActiveScroll);
+    this.updateActive();
     this.cards = Array.prototype.slice.call(document.querySelectorAll('[style*="#FCFAF4"]'));
     this.applyTweaks();
     this.reveal = () => {
@@ -467,7 +487,9 @@ class Component extends DCLogic {
   componentDidUpdate() { this.applyTweaks(); }
 
   componentWillUnmount() {
-    if (this.io) this.io.disconnect();
+    window.removeEventListener('scroll', this.onActiveScroll);
+    window.removeEventListener('resize', this.onActiveScroll);
+    window.removeEventListener('load', this.onActiveScroll);
     clearTimeout(this.navTimer);
     (this.navEvents || []).forEach((evt) => {
       window.removeEventListener(evt, this.reveal, { capture: true });
