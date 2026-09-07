@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notre sujet — Le paradoxe de l'IA au cinéma</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -11,7 +12,6 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
-<script src="./image-slot.js"></script>
 <style>
   html { scroll-behavior: smooth; }
   body { margin: 0; background: #1C1A17; color: #EDE3D0; }
@@ -19,6 +19,11 @@
   a:hover { color: #8E3A34; }
   :focus-visible { outline: 2px solid #C9B8A6; outline-offset: 3px; }
   ::selection { background: rgba(201,184,166,0.32); }
+  .strip { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .strip::-webkit-scrollbar { display: none; }
+  .prose p { font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C; margin: 0 0 15px; }
+  .prose p:last-child { margin-bottom: 0; }
+  .cite { font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.08em; color: #7A5A46; }
 </style>
 </helmet>
 <div style="background: #1C1A17; min-height: 100vh; overflow-x: hidden; padding-right: clamp(0px, 4vw, 48px);">
@@ -26,7 +31,7 @@
   <div data-grain="1" style="position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
 
   <nav style="{{ navStyle }}" onMouseEnter="{{ onNavEnter }}" onMouseLeave="{{ onNavLeave }}">
-    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="5">
+    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
       <a href="{{ dot.href }}" onMouseEnter="{{ dot.onEnter }}" onMouseLeave="{{ dot.onLeave }}" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 30px;">
         <span style="{{ dot.labelStyle }}">{{ dot.label }}</span>
         <span style="{{ dot.dotStyle }}"></span>
@@ -52,14 +57,30 @@
     <span>24 images / sec.</span>
   </div>
 
-  <section id="intro" data-section data-screen-label="Cadre 01" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+  <section id="actualite" data-section data-screen-label="Cadre 01" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
     <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
       <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 01</p>
       <p style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 22px;">Notre sujet</p>
-      <h1 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 5.4vw, 66px); line-height: 1.04; text-transform: uppercase; color: #2A2622; margin: 0 0 24px; max-width: 20ch; text-wrap: balance;">Une technologie que le cinéma utilise et redoute</h1>
-      <div style="height: 1px; background: #D6CEBD; margin: 0 0 24px; max-width: 460px;"></div>
-      <p style="font-family: 'EB Garamond', Georgia, serif; font-size: clamp(18px, 2.1vw, 22px); line-height: 1.6; color: #3A342C; max-width: 700px; margin: 0; text-wrap: pretty;">L'intelligence artificielle est entrée dans les studios par la porte technique — analyse de scénarios, casting, effets, montage, recommandation — au moment même où elle occupait déjà l'écran comme figure de menace. C'est ce décalage que nous avons choisi d'examiner, à partir d'un article universitaire qui en dresse l'inventaire.</p>
+      <h1 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 5.4vw, 66px); line-height: 1.04; text-transform: uppercase; color: #2A2622; margin: 0 0 26px; max-width: 20ch; text-wrap: balance;">Une technologie que le cinéma utilise et redoute</h1>
+      <div style="height: 1px; background: #D6CEBD; margin: 0 0 30px; max-width: 460px;"></div>
+      <div style="display: grid; gap: clamp(28px, 4vw, 54px); grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); align-items: start;">
+        <div class="prose">
+          <p>Le 7 septembre 2026, à la Fondation Maeght de Saint-Paul-de-Vence, s'est tenu le premier Sommet Lumière : 220 participants venus de 65 pays, une vingtaine de ministres de la Culture, deux chefs d'État, les patrons des grands studios et des plateformes. La presse l'a immédiatement surnommé le « Davos du cinéma ». Le seul précédent comparable que les organisateurs aient trouvé remonte à 1926, au Congrès international du cinématographe de Paris.</p>
+          <p>Un sommet international ne se convoque pas pour une question de goût. On en réunit un lorsqu'un problème a cessé d'être professionnel pour devenir politique. Le président du CNC, Gaëtan Bruel, l'a dit sans détour : « Nous avons besoin d'un nouveau multilatéralisme pour le cinéma et l'image animée. » Le vocabulaire est celui de la diplomatie, pas celui de la critique de films.</p>
+          <p>Deux chiffres expliquent l'urgence. La fréquentation mondiale a chuté de 40 % en cinq ans ; on vendait huit milliards de billets en 2019, quatre milliards huit cents millions en 2024. Et par-dessus cette crise s'installe une technologie qui promet de faire des films vingt fois moins cher.</p>
+        </div>
+        <div>
+          <div style="background: #FCFAF4; border: 1px solid #D6CEBD; border-left: 3px solid #6E2A2A; padding: 26px;">
+            <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 14px;">Sommet Lumière · 7 septembre 2026</p>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-style: italic; font-size: clamp(18px, 2.2vw, 23px); line-height: 1.45; color: #2A2622; margin: 0 0 16px;">« Nos identités sont des histoires. »</p>
+            <p class="cite" style="margin: 0 0 22px;">Emmanuel Macron, Fondation Maeght, 7 septembre 2026</p>
+            <div style="height: 1px; background: #D6CEBD; margin: 0 0 20px;"></div>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #3A342C; margin: 0 0 12px;">Le président français y a défendu l'idée que le cinéma, les séries, l'animation et le jeu vidéo sont des « biens communs qui façonnent nos imaginaires », et jugé que ce serait une erreur que la technologie « se substitue ou prétendrait se substituer aux auteurs ».</p>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #3A342C; margin: 0;">Deux absences en disent autant que les présences : <strong>les grandes sociétés d'intelligence artificielle n'étaient pas là</strong>, et <strong>YouTube a décliné l'invitation</strong>.</p>
+          </div>
+        </div>
+      </div>
     </div>
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
   </section>
@@ -68,52 +89,107 @@
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
     <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
       <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 02</p>
-      <div style="display: grid; gap: clamp(28px, 4vw, 56px); grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start;">
-        <div>
-          <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 16px;">Le double paradoxe</h2>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0 0 14px;">L'article de Claudia López Frías nomme deux contradictions qui se superposent. La première est narrative : l'IA s'est révélée un outil précieux pour fabriquer des films, alors que le cinéma nous avertit de ses risques presque depuis ses origines.</p>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">La seconde est industrielle : l'IA génératrice est devenue un instrument de production efficace, et c'est précisément cette efficacité qui soulève des questions éthiques — droits d'auteur, consentement des interprètes, emploi.</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.8vw, 34px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 26px;">Pourquoi ce sujet</h2>
+      <div style="display: grid; gap: clamp(28px, 4vw, 54px); grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start;">
+        <div class="prose">
+          <p>C'est en partant de cette actualité que nous avons choisi d'examiner un article universitaire paru deux ans plus tôt : <em>The paradox of Artificial Intelligence in Cinema</em>, de Claudia López Frías, publié en 2024 par les éditions CDIG.</p>
+          <p>L'article dit une chose que l'on n'entend pas souvent formulée aussi nettement. L'intelligence artificielle est entrée dans les studios par la porte technique — analyse des scénarios, casting, effets visuels, montage, recommandation — au moment même où elle occupait déjà l'écran comme figure de menace. Le cinéma se sert d'un outil dont il fait, depuis un demi-siècle, le méchant de ses propres films.</p>
+          <p>Ce décalage est amusant tant qu'on le regarde comme une ironie. Il cesse de l'être quand on remarque que la question a changé d'échelle. En 2024, l'autrice décrivait une contradiction culturelle. En 2026, des États s'en emparent, mettent un milliard d'euros sur la table et parlent de souveraineté.</p>
         </div>
-        <div>
-          <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 16px;">Ce que le dossier couvre</h2>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0 0 14px;">Nous suivons le plan de l'article : les étapes de fabrication d'un film, une par une, puis les scénarios que la science-fiction a construits autour de l'IA, et enfin les défis posés à celles et ceux qui travaillent dans l'industrie.</p>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">Le corpus est celui de l'autrice — outils commerciaux, publications scientifiques, déclarations de cinéastes, filmographie de science-fiction de 1968 à 2023. Nous n'y ajoutons pas de données nouvelles ; nous en proposons une lecture.</p>
+        <div class="prose">
+          <p>Ce déplacement est ce que nous voulons comprendre. Le cinéma n'est pas seulement une industrie : c'est un instrument d'influence. Un pays qui exporte ses films exporte sa langue, ses paysages, sa version de l'histoire. C'est ce que la diplomatie appelle du <em>soft power</em>, et ce que le CNC nomme plus directement de la souveraineté culturelle.</p>
+          <p>Or l'intelligence artificielle touche précisément à cet endroit. Si les outils qui décident quels scénarios sont financés, quels acteurs sont rentables et quels films vous sont recommandés appartiennent tous à une poignée d'entreprises situées dans un seul pays, alors la question n'est plus de savoir si une machine peut être créative. Elle est de savoir qui tient le récit.</p>
+          <p>Notre travail consiste donc à lire l'article de López Frías pour ce qu'il apporte — un inventaire remarquablement complet — puis à le confronter à ce qu'il n'avait pas encore vu.</p>
         </div>
       </div>
     </div>
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
   </section>
 
-  <section id="visuel" data-section data-screen-label="Cadre 03" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+  <section id="problematique" data-section data-screen-label="Cadre 03" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
-    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 40px clamp(20px, 5vw, 64px) 30px;">
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
       <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 03</p>
-      <div style="position: relative; height: clamp(220px, 38vw, 500px); border: 1px solid #D6CEBD;">
-        <image-slot id="sujet-wide" shape="rect" placeholder="Photogramme"></image-slot>
-        <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 110px rgba(40,26,12,0.5);"></div>
+      <div style="max-width: 980px;">
+        <div style="background: #17150F; border: 1px solid #0E0C0A; box-shadow: 0 18px 40px rgba(0,0,0,0.4);">
+          <div style="display: flex; gap: 0; height: 34px; overflow: hidden;">
+            <div style="flex: 1; background: repeating-linear-gradient(66deg, #EDE3D0 0 26px, #17150F 26px 52px);"></div>
+          </div>
+          <div style="padding: clamp(26px, 4vw, 44px);">
+            <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #C9B8A6; margin: 0 0 20px;">Claquette · séquence 01 · prise 01 — notre problématique</p>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: clamp(20px, 2.9vw, 32px); line-height: 1.45; color: #EDE3D0; margin: 0 0 20px; text-wrap: pretty;">Le paradoxe décrit par Claudia López Frías — une industrie qui emploie l'intelligence artificielle à tous les stades de sa production tout en la mettant en scène comme une menace — n'est-il qu'une ironie culturelle, ou le symptôme d'un déplacement plus profond, par lequel le cinéma cesse d'être un enjeu artistique pour devenir un enjeu politique de souveraineté ?</p>
+            <div style="height: 1px; background: #3A342B; margin: 0 0 18px;"></div>
+            <p style="font-family: 'Courier Prime', monospace; font-size: 11px; line-height: 1.7; letter-spacing: 0.06em; color: #8A7C64; margin: 0;">Question subsidiaire — l'IA remplace-t-elle les artistes du cinéma, ou transforme-t-elle seulement leur manière de créer ? Nous verrons que cette question, la plus courante, est aussi celle qui masque le mieux la première.</p>
+          </div>
+        </div>
       </div>
-      <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 12px 0 0;">Emplacement d'image — déposez ici votre visuel</p>
     </div>
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
   </section>
 
-  <section id="lexique" data-section data-screen-label="Cadre 04" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+  <section id="hypotheses" data-section data-screen-label="Cadre 04" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
     <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
       <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 04</p>
-      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 32px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 30px;">Cinq termes pour lire la suite</h2>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.8vw, 34px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 14px;">Nos trois hypothèses</h2>
+      <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; max-width: 760px; margin: 0 0 34px;">Elles sont ordonnées de la plus prudente à la plus engagée. La troisième est celle que le dossier cherche vraiment à établir.</p>
+      <div style="display: grid; gap: 20px;">
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 26px clamp(22px, 3vw, 34px); display: grid; gap: 20px; grid-template-columns: minmax(0, 54px) minmax(0, 1fr); align-items: start;">
+          <p style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 0.9; color: #C9B8A6; margin: 0;">01</p>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(16px, 1.9vw, 20px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 12px;">L'IA ne remplace pas les créateurs : elle déplace le pouvoir de décision</h3>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">Les outils que l'article recense ne fabriquent pas d'œuvres : ils <em>trient</em>. Ils disent quel scénario mérite d'être financé, quel acteur est rentable sur quel territoire, quel montage retenir, quel film vous recommander. Le geste artistique reste à l'humain ; ce qui lui échappe, c'est l'ensemble des décisions qui l'entourent. C'est une perte de pouvoir plus discrète qu'un remplacement, et plus étendue.</p>
+          </div>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 26px clamp(22px, 3vw, 34px); display: grid; gap: 20px; grid-template-columns: minmax(0, 54px) minmax(0, 1fr); align-items: start;">
+          <p style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 0.9; color: #C9B8A6; margin: 0;">02</p>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(16px, 1.9vw, 20px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 12px;">Le paradoxe n'en est pas un : c'est un conflit mal décrit</h3>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">Parler du « cinéma » qui utiliserait l'IA tout en la dénonçant suppose que le cinéma soit un sujet unique. Or ceux qui filment la menace — scénaristes, réalisateurs, comédiens — et ceux qui achètent la technologie — studios, plateformes — ne sont pas les mêmes, et leurs intérêts s'opposent. Ce que l'on prend pour une contradiction est un rapport de force.</p>
+          </div>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; border-left: 3px solid #6E2A2A; padding: 26px clamp(22px, 3vw, 34px); display: grid; gap: 20px; grid-template-columns: minmax(0, 54px) minmax(0, 1fr); align-items: start;">
+          <p style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 3.6vw, 44px); line-height: 0.9; color: #6E2A2A; margin: 0;">03</p>
+          <div>
+            <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(16px, 1.9vw, 20px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 12px;">Parce que le cinéma est un instrument de rayonnement, l'IA y devient une affaire d'État</h3>
+            <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">Un pays qui exporte ses films exporte sa langue et ses représentations. Si les instruments de fabrication et de recommandation appartiennent à quelques entreprises étrangères, la dépendance devient politique. Le Sommet Lumière du 7 septembre 2026 marquerait ce basculement : le débat quitte les studios pour les chancelleries, et le vocabulaire passe de la création à la souveraineté.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="visuel" data-section data-screen-label="Cadre 05" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 40px clamp(20px, 5vw, 64px) 30px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 05</p>
+      <div style="position: relative; height: clamp(220px, 38vw, 500px); border: 1px solid #D6CEBD;">
+        <img src="assets/pellicule.jpg" alt="Gros plan sur une bobine de pellicule : perforations et photogrammes visibles" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+        <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 110px rgba(40,26,12,0.5);"></div>
+      </div>
+      <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 12px 0 0;">La chaîne — de la pellicule à l'algorithme <span style="text-transform: none; letter-spacing: 0.04em; color: #9A8C74;">· photo Coyau, CC BY-SA 3.0, via Wikimedia Commons</span></p>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="lexique" data-section data-screen-label="Cadre 06" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 06</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 32px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 30px;">Six termes pour lire la suite</h2>
       <div style="display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));">
         <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
           <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Apprentissage profond</h3>
           <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Architecture d'apprentissage automatique qui imite la manière dont on acquiert une compétence — prédire un mot, reconnaître une forme.</p>
         </div>
         <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(0.3deg);">
-          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">IA génératrice</h3>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Modèles qui traitent un large corpus de textes, de sons ou d'images pour produire des contenus nouveaux dans le style des données d'origine.</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">IA générative</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Modèles qui traitent un large corpus de textes, de sons ou d'images pour produire un contenu nouveau <em>dans le style des données d'origine</em>. Toute la question du droit d'auteur tient dans ces cinq derniers mots.</p>
         </div>
         <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
           <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Deepfake</h3>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">De <em>deep learning</em> et <em>fake</em> : altération de vidéos de personnes réelles par réseaux antagonistes génératifs (GAN), indétectable à l'œil nu.</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">De <em>deep learning</em> et <em>fake</em> : altération de vidéos de personnes réelles par réseaux antagonistes génératifs (GAN), aujourd'hui indétectable à l'œil nu.</p>
         </div>
         <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(0.3deg);">
           <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Effets Foley</h3>
@@ -121,17 +197,47 @@
         </div>
         <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
           <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">IA forte</h3>
-          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Hypothèse d'une intelligence artificielle égalant ou dépassant l'humaine, dotée de conscience et de sentiments. C'est celle des films, pas celle des studios.</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Hypothèse d'une intelligence égalant ou dépassant l'humaine, dotée de conscience et de sentiments. C'est celle des films — pas celle des studios.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; border-top: 3px solid #6E2A2A; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Souveraineté culturelle</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Capacité d'un pays à produire et diffuser ses propres récits sans dépendre d'infrastructures étrangères. Le terme employé par le CNC en 2026 — il n'apparaît pas une seule fois dans l'article de 2024.</p>
         </div>
       </div>
     </div>
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
   </section>
 
-  <section id="suite" data-section data-screen-label="Cadre 05" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+  <section id="corpus" data-section data-screen-label="Cadre 07" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 07</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 32px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 14px;">Notre corpus et notre méthode</h2>
+      <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; max-width: 780px; margin: 0 0 32px;">Une source principale, que nous restituons page par page dans la bobine 03, et un corpus secondaire qui sert uniquement à mesurer ce que l'article, écrit en 2024, ne pouvait pas voir. Nous n'utilisons jamais les sources secondaires pour contredire l'autrice sur son propre terrain.</p>
+      <div style="display: grid; gap: 26px; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); align-items: start;">
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; border-left: 3px solid #6E2A2A; padding: 24px;">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 12px;">Source principale</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #3A342C; margin: 0 0 10px;">López Frías, C. (2024). <em>The paradox of Artificial Intelligence in Cinema.</em> In F. B. Gil &amp; P. F. Alves (dir.), <em>Comunicação, Artes e Culturas</em>, p. 5–25. CDIG, Cultura Digital.</p>
+          <p class="cite" style="margin: 0;">Chapitre d'ouvrage collectif, en anglais. 21 pages. Toutes nos citations en sont des traductions libres.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 24px;">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 12px;">Corpus secondaire · 2024–2026</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #3A342C; margin: 0 0 10px;">Dépêches AFP et presse économique sur le Sommet Lumière ; deux émissions de France Culture ; un entretien du dirigeant de MK2 ; la journée d'études de la Cinémathèque française de mars 2024 ; les positions syndicales françaises de 2026.</p>
+          <p class="cite" style="margin: 0;">Le détail des références figure en fin de bobine 04.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 24px;">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 12px;">Une précaution</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.65; color: #3A342C; margin: 0;">Le Sommet Lumière s'est tenu le jour même où nous achevons ce dossier. Les chiffres de participation varient encore d'une source à l'autre — de 150 à 220 participants selon la date du communiqué. Nous retenons les chiffres de la dépêche AFP du 7 septembre et signalons cette incertitude plutôt que de la masquer.</p>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="suite" data-section data-screen-label="Cadre 08" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
     <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 44px clamp(20px, 5vw, 64px);">
-      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 05</p>
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 08</p>
       <a href="article.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: #6E2A2A; color: #EDE3D0; font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 260ms ease, transform 260ms ease;" style-hover="background: #8E3A34; transform: translateY(-2px);">Bobine suivante : l'article</a>
     </div>
     <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
@@ -148,11 +254,14 @@ class Component extends DCLogic {
   state = { active: 0, hover: -1, navVisible: false };
 
   sections = [
-    { id: 'intro', label: 'Cadre 01 · Cadrage' },
-    { id: 'paradoxe', label: 'Cadre 02 · Le paradoxe' },
-    { id: 'visuel', label: 'Cadre 03 · Photogramme' },
-    { id: 'lexique', label: 'Cadre 04 · Lexique' },
-    { id: 'suite', label: 'Cadre 05 · Suivant' },
+    { id: 'actualite', label: 'Cadre 01 · Actualité' },
+    { id: 'paradoxe', label: 'Cadre 02 · Pourquoi' },
+    { id: 'problematique', label: 'Cadre 03 · Problématique' },
+    { id: 'hypotheses', label: 'Cadre 04 · Hypothèses' },
+    { id: 'visuel', label: 'Cadre 05 · Photogramme' },
+    { id: 'lexique', label: 'Cadre 06 · Lexique' },
+    { id: 'corpus', label: 'Cadre 07 · Corpus' },
+    { id: 'suite', label: 'Cadre 08 · Suivant' },
   ];
 
   componentDidMount() {
@@ -171,6 +280,8 @@ class Component extends DCLogic {
       const el = document.getElementById(s.id);
       if (el) this.io.observe(el);
     });
+    this.cards = Array.prototype.slice.call(document.querySelectorAll('[style*="#FCFAF4"]'));
+    this.applyTweaks();
     this.reveal = () => {
       clearTimeout(this.navTimer);
       if (!this.state.navVisible) this.setState({ navVisible: true });
@@ -186,6 +297,37 @@ class Component extends DCLogic {
       document.addEventListener(evt, this.reveal, { passive: true, capture: true });
     });
   }
+
+  tones = {
+    'Ivoire': { frame: '#F5F1E7', card: '#FCFAF4' },
+    'Crème': { frame: '#EFE8DA', card: '#F8F3E9' },
+    'Papier blanc': { frame: '#FAF9F6', card: '#FFFFFF' },
+  };
+
+  holeColor(v) {
+    const a = [0x6d, 0x68, 0x5d], b = [0xf1, 0xec, 0xdf];
+    const hex = a.map((c, i) => Math.round(c + (b[i] - c) * v).toString(16).padStart(2, '0')).join('');
+    return '%23' + hex.toUpperCase();
+  }
+
+  applyTweaks() {
+    const t = this.tones[this.props.frameTone] || this.tones['Ivoire'];
+    document.querySelectorAll('[data-frame]').forEach((el) => { el.style.background = t.frame; });
+    (this.cards || []).forEach((el) => { el.style.background = t.card; });
+
+    const v = (this.props.perfVisibility ?? 70) / 100;
+    const fill = this.holeColor(v);
+    const uri = "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='" + fill + "'/%3E%3C/svg%3E\")";
+    document.querySelectorAll('[data-perf]').forEach((el) => { el.style.backgroundImage = uri; });
+
+    const g = document.querySelector('[data-grain]');
+    if (g) g.style.opacity = String((this.props.grainAmount ?? 7) / 100);
+
+    this.navAlways = this.props.navAutoHide === false;
+    if (this.navAlways && !this.state.navVisible) this.setState({ navVisible: true });
+  }
+
+  componentDidUpdate() { this.applyTweaks(); }
 
   componentWillUnmount() {
     if (this.io) this.io.disconnect();
