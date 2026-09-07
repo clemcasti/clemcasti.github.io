@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #1C1A17; color: #EDE3D0; }
+  a { color: #6E2A2A; text-decoration: none; }
+  a:hover { color: #8E3A34; }
+  :focus-visible { outline: 2px solid #C9B8A6; outline-offset: 3px; }
+  ::selection { background: rgba(201,184,166,0.32); }
+</style>
+</helmet>
+<div style="background: #1C1A17; min-height: 100vh; overflow-x: hidden; padding-right: clamp(0px, 4vw, 48px);">
+
+  <div data-grain="1" style="position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <nav style="{{ navStyle }}" onMouseEnter="{{ onNavEnter }}" onMouseLeave="{{ onNavLeave }}">
+    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="5">
+      <a href="{{ dot.href }}" onMouseEnter="{{ dot.onEnter }}" onMouseLeave="{{ dot.onLeave }}" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 30px;">
+        <span style="{{ dot.labelStyle }}">{{ dot.label }}</span>
+        <span style="{{ dot.dotStyle }}"></span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 18px clamp(16px, 4vw, 56px); border-bottom: 1px solid #3A342B;">
+    <a href="index.html" style="display: flex; align-items: baseline; gap: 12px; color: #EDE3D0;">
+      <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 21px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9B8A6;">Paradoxe</span>
+      <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A7C64;">IA &amp; Cinéma · bobine 02</span>
+    </a>
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">
+      <a href="index.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">Accueil</a>
+      <a href="notre-sujet.html" style="color: #EDE3D0; padding-bottom: 3px; border-bottom: 2px solid #C9B8A6;">Notre sujet</a>
+      <a href="article.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">L'article</a>
+      <a href="reflexion.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">Réflexion</a>
+    </div>
+  </header>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px clamp(16px, 4vw, 56px) 8px; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9B8A6;">
+    <span>Bobine 02 / 04 — cadrage</span>
+    <span>24 images / sec.</span>
+  </div>
+
+  <section id="intro" data-section data-screen-label="Cadre 01" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 01</p>
+      <p style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 22px;">Notre sujet</p>
+      <h1 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 5.4vw, 66px); line-height: 1.04; text-transform: uppercase; color: #2A2622; margin: 0 0 24px; max-width: 20ch; text-wrap: balance;">Une technologie que le cinéma utilise et redoute</h1>
+      <div style="height: 1px; background: #D6CEBD; margin: 0 0 24px; max-width: 460px;"></div>
+      <p style="font-family: 'EB Garamond', Georgia, serif; font-size: clamp(18px, 2.1vw, 22px); line-height: 1.6; color: #3A342C; max-width: 700px; margin: 0; text-wrap: pretty;">L'intelligence artificielle est entrée dans les studios par la porte technique — analyse de scénarios, casting, effets, montage, recommandation — au moment même où elle occupait déjà l'écran comme figure de menace. C'est ce décalage que nous avons choisi d'examiner, à partir d'un article universitaire qui en dresse l'inventaire.</p>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="paradoxe" data-section data-screen-label="Cadre 02" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 02</p>
+      <div style="display: grid; gap: clamp(28px, 4vw, 56px); grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr)); align-items: start;">
+        <div>
+          <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 16px;">Le double paradoxe</h2>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0 0 14px;">L'article de Claudia López Frías nomme deux contradictions qui se superposent. La première est narrative : l'IA s'est révélée un outil précieux pour fabriquer des films, alors que le cinéma nous avertit de ses risques presque depuis ses origines.</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">La seconde est industrielle : l'IA génératrice est devenue un instrument de production efficace, et c'est précisément cette efficacité qui soulève des questions éthiques — droits d'auteur, consentement des interprètes, emploi.</p>
+        </div>
+        <div>
+          <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 30px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 16px;">Ce que le dossier couvre</h2>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0 0 14px;">Nous suivons le plan de l'article : les étapes de fabrication d'un film, une par une, puis les scénarios que la science-fiction a construits autour de l'IA, et enfin les défis posés à celles et ceux qui travaillent dans l'industrie.</p>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.7; color: #3A342C; margin: 0;">Le corpus est celui de l'autrice — outils commerciaux, publications scientifiques, déclarations de cinéastes, filmographie de science-fiction de 1968 à 2023. Nous n'y ajoutons pas de données nouvelles ; nous en proposons une lecture.</p>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="visuel" data-section data-screen-label="Cadre 03" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 40px clamp(20px, 5vw, 64px) 30px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 03</p>
+      <div style="position: relative; height: clamp(220px, 38vw, 500px); border: 1px solid #D6CEBD;">
+        <image-slot id="sujet-wide" shape="rect" placeholder="Photogramme"></image-slot>
+        <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 110px rgba(40,26,12,0.5);"></div>
+      </div>
+      <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 12px 0 0;">Emplacement d'image — déposez ici votre visuel</p>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="lexique" data-section data-screen-label="Cadre 04" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 04</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(20px, 2.6vw, 32px); letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 30px;">Cinq termes pour lire la suite</h2>
+      <div style="display: grid; gap: 18px; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));">
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Apprentissage profond</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Architecture d'apprentissage automatique qui imite la manière dont on acquiert une compétence — prédire un mot, reconnaître une forme.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">IA génératrice</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Modèles qui traitent un large corpus de textes, de sons ou d'images pour produire des contenus nouveaux dans le style des données d'origine.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Deepfake</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">De <em>deep learning</em> et <em>fake</em> : altération de vidéos de personnes réelles par réseaux antagonistes génératifs (GAN), indétectable à l'œil nu.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Effets Foley</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Sons qui n'ont pas pu être captés au tournage et qu'il faut recréer en postproduction. Depuis 2020, des IA les synthétisent.</p>
+        </div>
+        <div style="background: #FCFAF4; border: 1px solid #D6CEBD; padding: 22px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-4px) rotate(-0.3deg);">
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">IA forte</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Hypothèse d'une intelligence artificielle égalant ou dépassant l'humaine, dotée de conscience et de sentiments. C'est celle des films, pas celle des studios.</p>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="suite" data-section data-screen-label="Cadre 05" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 44px clamp(20px, 5vw, 64px);">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 05</p>
+      <a href="article.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: #6E2A2A; color: #EDE3D0; font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 260ms ease, transform 260ms ease;" style-hover="background: #8E3A34; transform: translateY(-2px);">Bobine suivante : l'article</a>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <footer style="border-top: 1px solid #3A342B; padding: 26px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7C64;">
+    <span>The Paradox of Artificial Intelligence in Cinema — Clémence Castillo</span>
+    <span>Dossier 01 / 04 · usage pédagogique</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0, hover: -1, navVisible: false };
+
+  sections = [
+    { id: 'intro', label: 'Cadre 01 · Cadrage' },
+    { id: 'paradoxe', label: 'Cadre 02 · Le paradoxe' },
+    { id: 'visuel', label: 'Cadre 03 · Photogramme' },
+    { id: 'lexique', label: 'Cadre 04 · Lexique' },
+    { id: 'suite', label: 'Cadre 05 · Suivant' },
+  ];
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach((e) => {
+        if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+      });
+      if (this.reveal) this.reveal();
+      if (best) {
+        const i = this.sections.findIndex((s) => s.id === best.target.id);
+        if (i >= 0 && i !== this.state.active) this.setState({ active: i });
+      }
+    }, { rootMargin: '-35% 0px -45% 0px', threshold: [0, 0.25, 0.5, 1] });
+    this.sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) this.io.observe(el);
+    });
+    this.reveal = () => {
+      clearTimeout(this.navTimer);
+      if (!this.state.navVisible) this.setState({ navVisible: true });
+      if (this.navPinned || this.navAlways) return;
+      this.navTimer = setTimeout(() => {
+        if (this.navPinned || this.navAlways) return;
+        this.setState({ navVisible: false });
+      }, 1600);
+    };
+    this.navEvents = ['wheel', 'touchmove', 'keydown', 'scroll', 'pointerdown'];
+    this.navEvents.forEach((evt) => {
+      window.addEventListener(evt, this.reveal, { passive: true, capture: true });
+      document.addEventListener(evt, this.reveal, { passive: true, capture: true });
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    clearTimeout(this.navTimer);
+    (this.navEvents || []).forEach((evt) => {
+      window.removeEventListener(evt, this.reveal, { capture: true });
+      document.removeEventListener(evt, this.reveal, { capture: true });
+    });
+  }
+
+  renderVals() {
+    const dots = this.sections.map((s, i) => {
+      const on = i === this.state.active || i === this.state.hover;
+      return {
+        label: s.label,
+        href: '#' + s.id,
+        onEnter: () => this.setState({ hover: i }),
+        onLeave: () => this.setState({ hover: -1 }),
+        dotStyle: [
+          'width:14px', 'height:18px', 'border-radius:4px', 'flex:0 0 auto',
+          'background:' + (on ? '#C9B8A6' : '#0F0E0C'),
+          'border:1px solid ' + (on ? '#C9B8A6' : '#3A342B'),
+          'box-shadow:' + (i === this.state.active ? '0 0 0 3px rgba(201,184,166,0.22)' : 'none'),
+          'transition:background 280ms ease, border-color 280ms ease, box-shadow 280ms ease',
+        ].join(';'),
+        labelStyle: [
+          "font-family:'Courier Prime', monospace", 'font-size:10px', 'letter-spacing:0.16em',
+          'text-transform:uppercase', 'white-space:nowrap', 'color:#EDE3D0',
+          'padding:5px 10px', 'background:#2A2622', 'border:1px solid #3A342B',
+          'position:absolute', 'right:40px', 'pointer-events:none',
+          'opacity:' + (on ? 1 : 0),
+          'transform:translateX(' + (on ? '0' : '8px') + ')',
+          'transition:opacity 280ms ease, transform 280ms ease',
+        ].join(';'),
+      };
+    });
+    const vis = this.state.navVisible || this.navAlways;
+    const navStyle = [
+      'position:fixed', 'right:0', 'top:0', 'bottom:0', 'width:46px',
+      'display:flex', 'flex-direction:column', 'align-items:center', 'justify-content:center',
+      'gap:10px', 'z-index:80', 'background:rgba(28,26,23,0.94)',
+      'border-left:1px solid #3A342B', 'box-shadow:-6px 0 18px rgba(0,0,0,0.45)',
+      'opacity:' + (vis ? 1 : 0),
+      'transform:translateX(' + (vis ? '0' : '10px') + ')',
+      'transition:opacity 380ms ease, transform 380ms ease',
+    ].join(';');
+    return {
+      dots,
+      navStyle,
+      onNavEnter: () => { this.navPinned = true; if (this.reveal) this.reveal(); },
+      onNavLeave: () => { this.navPinned = false; if (this.reveal) this.reveal(); },
+    };
+  }
+}
+</script>
+</body>
+</html>

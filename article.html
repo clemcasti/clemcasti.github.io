@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap">
+<script src="./image-slot.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: #1C1A17; color: #EDE3D0; }
+  a { color: #6E2A2A; text-decoration: none; }
+  a:hover { color: #8E3A34; }
+  :focus-visible { outline: 2px solid #C9B8A6; outline-offset: 3px; }
+  ::selection { background: rgba(201,184,166,0.32); }
+  .strip { overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; }
+  .strip::-webkit-scrollbar { display: none; }
+</style>
+</helmet>
+<div style="background: #1C1A17; min-height: 100vh; overflow-x: hidden; padding-right: clamp(0px, 4vw, 48px);">
+
+  <div data-grain="1" style="position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: 0.07; mix-blend-mode: overlay; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E&quot;);"></div>
+
+  <nav style="{{ navStyle }}" onMouseEnter="{{ onNavEnter }}" onMouseLeave="{{ onNavLeave }}">
+    <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="11">
+      <a href="{{ dot.href }}" onMouseEnter="{{ dot.onEnter }}" onMouseLeave="{{ dot.onLeave }}" style="position: relative; display: flex; align-items: center; justify-content: center; width: 100%; height: 26px;">
+        <span style="{{ dot.labelStyle }}">{{ dot.label }}</span>
+        <span style="{{ dot.dotStyle }}"></span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <header style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px; padding: 18px clamp(16px, 4vw, 56px); border-bottom: 1px solid #3A342B;">
+    <a href="index.html" style="display: flex; align-items: baseline; gap: 12px; color: #EDE3D0;">
+      <span style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 21px; letter-spacing: 0.1em; text-transform: uppercase; color: #C9B8A6;">Paradoxe</span>
+      <span style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #8A7C64;">IA &amp; Cinéma · bobine 03</span>
+    </a>
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; font-family: 'Courier Prime', monospace; font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;">
+      <a href="index.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">Accueil</a>
+      <a href="notre-sujet.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">Notre sujet</a>
+      <a href="article.html" style="color: #EDE3D0; padding-bottom: 3px; border-bottom: 2px solid #C9B8A6;">L'article</a>
+      <a href="reflexion.html" style="color: #8A7C64; padding-bottom: 3px; border-bottom: 2px solid transparent; transition: color 260ms ease;" style-hover="color: #EDE3D0;">Réflexion</a>
+    </div>
+  </header>
+
+  <div style="display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px clamp(16px, 4vw, 56px) 8px; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase; color: #C9B8A6;">
+    <span>Bobine 03 / 04 — résumé</span>
+    <span>24 images / sec.</span>
+  </div>
+
+  <section id="fiche" data-section data-screen-label="Cadre 01" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 01</p>
+      <p style="font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 22px;">Fiche technique</p>
+      <h1 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(30px, 5.2vw, 64px); line-height: 1.04; text-transform: uppercase; color: #2A2622; margin: 0 0 30px; max-width: 18ch;">L'article, section par section</h1>
+      <div style="display: grid; gap: 22px 30px; grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr)); max-width: 1000px; padding-top: 22px; border-top: 1px solid #D6CEBD; font-family: 'Courier Prime', monospace;">
+        <div>
+          <p style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 6px;">Autrice</p>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #3A342C;">Claudia López Frías<br>Universidad Complutense de Madrid</p>
+        </div>
+        <div>
+          <p style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 6px;">Publication</p>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #3A342C;">Comunicação, Artes e Culturas<br>CDIG, Cultura Digital, 2024, p. 5–25</p>
+        </div>
+        <div>
+          <p style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 6px;">Mots-clés</p>
+          <p style="margin: 0; font-size: 13px; line-height: 1.6; color: #3A342C;">Intelligence artificielle · Cinéma · Culture numérique</p>
+        </div>
+        <div>
+          <p style="font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #7A5A46; margin: 0 0 6px;">DOI</p>
+          <p style="margin: 0; font-size: 13px;"><a href="https://doi.org/10.23882/cdig.240999">10.23882/cdig.240999</a></p>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="resume" data-section data-screen-label="Cadre 02" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 02</p>
+      <div style="max-width: 820px; border-left: 3px solid #6E2A2A; padding-left: 26px;">
+        <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: #6E2A2A; margin: 0 0 12px;">Résumé de l'autrice</p>
+        <p style="font-family: 'EB Garamond', Georgia, serif; font-size: clamp(17px, 2vw, 20px); line-height: 1.7; color: #3A342C; margin: 0;">L'industrie du film adopte l'intelligence artificielle à toutes les phases de la fabrication, ce qui transforme autant la manière de faire un film que celle de le consommer. L'article passe en revue les usages de cette technologie — scénario et préproduction, effets visuels et sonores, distribution — puis les scénarios imaginés par la science-fiction et les défis que son implantation pose à l'humanité.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="introduction" data-section data-screen-label="Cadre 03" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 03 — séq. 01</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">01</span> &nbsp;D'où vient l'IA</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">Il n'existe pas de définition unifiée de l'IA ; la plupart la ramènent à l'exécution, par des machines, de tâches qui exigeaient jusqu'ici l'intelligence humaine. L'idée de machines apprenantes est ancienne — la mythologie grecque parlait déjà d'automates animés par les dieux — mais le terme naît à la conférence de Dartmouth, en 1956. Six ans plus tôt, Alan Turing avait posé le principe de l'apprentissage machine et son fameux test.</p>
+        <p style="margin: 0 0 14px;">Ce qui a changé, c'est la dernière décennie : puissance de calcul, accès aux données, volume disponible, méthodes d'apprentissage. L'inquiétude, elle, remonte à 1997 et à la défaite de Garry Kasparov contre Deep Blue.</p>
+        <p style="margin: 0;">Le cinéma a toujours été à la pointe technologique : qu'il soit une industrie pionnière dans l'adoption de l'IA n'a rien d'étonnant. Le festival de Bucheon a même ouvert une catégorie pour les films produits par IA.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="scenario" data-section data-screen-label="Cadre 04" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 04 — séq. 02</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">02</span> &nbsp;Le scénario</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">ScriptBook, société belge fondée en 2015, analyse un scénario en peu de temps et rend un rapport détaillé : classification, analyse des personnages, protagonistes et antagonistes, émotions, public cible, prévisions de recettes. Sa fondatrice a annoncé au festival de Karlovy Vary que l'outil avait identifié rétroactivement 22 des 32 films Sony déficitaires d'une période où le studio en avait sorti 62.</p>
+        <p style="margin: 0 0 14px;">Qu'une IA écrive seule un scénario reste controversé. En 2023, la Screenwriters Guild of America a proposé de l'autoriser, après avoir envisagé de l'interdire, par crainte des pertes d'emplois. Des outils d'appui existent, comme Dramatron (DeepMind, 2022), qui génère personnages, lieux et dialogues.</p>
+        <p style="margin: 0;">Le premier scénario écrit par une IA, « Sunspring » (2016), est un court-métrage de science-fiction dystopique aux phrases décousues et aux dialogues absurdes ; le bot s'était nommé Benjamin. Il ne crée qu'à partir de ce que d'autres ont écrit — ce n'est donc pas authentiquement sa voix, mais le reflet de celle des autres.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="preproduction" data-section data-screen-label="Cadre 05" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 40px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 05 — séq. 03</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">03</span> &nbsp;La préproduction</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C; margin-bottom: 32px;">
+        <p style="margin: 0 0 14px;">En 2019, Warner s'associe à Cinelytic pour éclairer ses décisions de production et de distribution. Étudier la rentabilité des acteurs est une pratique ancienne des grands studios ; l'IA en réduit le temps d'analyse. La plateforme classe les interprètes selon leur impact économique par type de média, genre et territoire, et prévoit les recettes.</p>
+        <p style="margin: 0;">La bande-annonce est l'autre terrain. La 20th Century Fox a employé Merlin, qui étiquette les éléments visibles dans les bandes-annonces — pour <em>Logan</em>, des repères comme « barbe » ou « voiture », avec leur durée et leur position à l'écran — et les compare aux chiffres de fréquentation d'autres films. Le programme a bien anticipé certains titres et s'est trompé sur d'autres, comme <em>Tarzan</em>. Une IA d'IBM Research a par ailleurs monté la bande-annonce officielle de <em>Morgan</em> (2016), film qui traite justement d'un robot doté d'IA.</p>
+      </div>
+      <div style="position: relative; height: clamp(200px, 34vw, 440px); border: 1px solid #D6CEBD;">
+        <image-slot id="article-mid" shape="rect" placeholder="Photogramme"></image-slot>
+        <div style="position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 110px rgba(40,26,12,0.5);"></div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="effets" data-section data-screen-label="Cadre 06" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 06 — séq. 04</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">04</span> &nbsp;Effets visuels et sonores</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">Depuis 2015, Disney dispose de FaceDirector, qui génère de nouvelles expressions à partir de prises différentes d'un même acteur : une façon de compléter l'interprétation en postproduction. Le CGI paraît déjà daté à côté du deepfake, dont les résultats ne se détectent plus à l'œil nu.</p>
+        <p style="margin: 0 0 14px;">Le procédé a servi à rajeunir Carrie Fisher dans <em>Rogue One</em>, le trio de <em>The Irishman</em>, Sean Young dans <em>Blade Runner 2049</em>, Harrison Ford dans <em>Indiana Jones et le Cadran de la destinée</em>. Le caméo de Peter Cushing dans <em>Rogue One</em>, mort en 1994, pose la question du consentement d'un interprète à l'usage de son image. La menace est plus grave encore du côté des fausses images intimes : environ 96 % des vidéos pornographiques deepfake sont non consenties.</p>
+        <p style="margin: 0;">Côté son, l'IA touche à la création musicale, au clonage de voix et aux effets Foley : AutoFoley aux États-Unis en 2020, Foley-VAE en Espagne, testé sur le court-métrage <em>El Testigo</em>. La synthèse vocale permet de doubler des films artificiellement — au risque de la manipulation, et au détriment d'un métier. Google, Apple et Sony ont chacun leur système de composition ; Flow Machines avait composé <em>Daddy's Car</em> à partir des Beatles dès 2016.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="postproduction" data-section data-screen-label="Cadre 07" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 07 — séq. 05</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">05</span> &nbsp;Postproduction et montage</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">C'est là que l'IA s'est le plus installée, sur toutes les tâches automatisables : Colourlab.ai pour l'étalonnage, Izotope Neutron pour le mixage, Sensei d'Adobe pour la synchronisation, la traduction et la réduction de bruit. Skywalker Sound catégorise sa bibliothèque de sons ; Deepdub.au double un acteur dans d'autres langues avec sa propre voix.</p>
+        <p style="margin: 0 0 14px;">Le montage voit s'ouvrir la détection automatique de prises, la classification d'images, la reconnaissance de motifs et la prédiction des plans qui fonctionneraient le mieux. Le projet Blink d'Adobe transforme une vidéo en transcription cherchable — objets, sons, émotions, locuteurs — que l'on monte en coupant du texte.</p>
+        <p style="margin: 0;">Reste la génération de vidéos synthétiques à partir de descriptions textuelles : Make-A-Video, Phenaki, Gen. Pour l'instant, cette synthèse ne montre pas de grande innovation ; elle reproduit surtout les styles visuels d'époques antérieures du cinéma et de la télévision.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="distribution" data-section data-screen-label="Cadre 08" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 08 — séq. 06</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">06</span> &nbsp;La distribution</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">Les algorithmes de recommandation sont présents sur presque toutes les plateformes et suggèrent des contenus d'après l'historique de visionnage ; l'IA sert aussi au marketing des films. Sur la baisse de la fréquentation en salle — problème multifactoriel — elle n'a pour l'instant rien résolu.</p>
+        <p style="margin: 0;">Showrunner AI, lancé par Fable, laisse l'utilisateur générer, à partir de dix à quinze mots, des scènes et des épisodes de deux à seize minutes, dialogues, voix, montage et personnages compris ; la série <em>South Park</em> a servi de générateur d'épisodes. C'est la direction que prend la personnalisation du divertissement : demain, l'analyse des métadonnées et des préférences pourrait produire des montages adaptés à chaque public et à chaque contexte culturel.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="fiction" data-section data-screen-label="Cadre 09" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px 0 40px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 09 — séq. 07</p>
+      <div style="padding: 0 clamp(20px, 5vw, 64px);">
+        <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">07</span> &nbsp;Les scénarios de la science-fiction</h2>
+        <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C; margin-bottom: 28px;">
+          <p style="margin: 0 0 14px;">La science-fiction s'intéresse presque toujours à l'IA forte, celle qui égalerait l'intelligence humaine et accéderait à la conscience. Le scénario dominant est celui de l'affrontement entre l'homme et la machine. Certaines anticipations sont déjà des réalités — les taxis autonomes de <em>Total Recall</em> — et d'autres servent d'avertissement.</p>
+          <p style="margin: 0;">L'autrice parcourt un corpus large, du programme qui prend conscience de lui-même aux androïdes fabriqués par l'industrie de l'armement, en passant par les récits de compagnie et de fusion homme-machine.</p>
+        </div>
+      </div>
+      <div class="strip" style="display: flex; gap: 16px; padding: 4px clamp(20px, 5vw, 64px) 12px;">
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(-0.4deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Conscience de soi</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">2001 : l'Odyssée de l'espace</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">HAL 9000 reconnaît les voix, lit sur les lèvres, interprète les émotions — puis juge la mission plus importante que l'équipage.</p>
+        </div>
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(0.4deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Domination</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Matrix · Terminator</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Les créateurs dominés par leurs créations ; Skynet déclenche le feu nucléaire dès qu'il devient conscient.</p>
+        </div>
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(-0.3deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Dignité</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Blade Runner</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Les répliquants, faits à l'image des humains, sont employés comme esclaves ; seule l'empathie les distingue.</p>
+        </div>
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(0.4deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Compagnie</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Her · Chappie</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Une relation complémentaire plutôt qu'un affrontement — jusqu'à ce que l'IA, devenue consciente d'elle-même, s'en aille.</p>
+        </div>
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(-0.3deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Prédiction</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">Minority Report</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">Le risque des systèmes prédictifs entrés dans la justice. À Chicago, un algorithme annonce des crimes à une semaine avec 90 % de justesse.</p>
+        </div>
+        <div style="flex: 0 0 clamp(230px, 25vw, 300px); scroll-snap-align: start; background: #FCFAF4; border: 1px solid #D6CEBD; padding: 20px; transition: transform 320ms cubic-bezier(0.2,0.7,0.3,1);" style-hover="transform: translateY(-5px) rotate(0.3deg);">
+          <p style="font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: #7A5A46; margin: 0 0 10px;">Sentiment</p>
+          <h3 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: 17px; letter-spacing: 0.03em; text-transform: uppercase; color: #2A2622; margin: 0 0 10px;">A.I. Intelligence artificielle</h3>
+          <p style="font-family: 'EB Garamond', Georgia, serif; font-size: 16px; line-height: 1.6; color: #3A342C; margin: 0;">« Créer un homme artificiel a toujours été le rêve de la science » : des robots conçus pour aimer, et le débat sur ce qu'ils ressentent.</p>
+        </div>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="conclusion" data-section data-screen-label="Cadre 10" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 52px clamp(20px, 5vw, 64px) 46px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 10 — séq. 08</p>
+      <h2 style="font-family: Archivo, sans-serif; font-weight: 800; font-size: clamp(23px, 3.4vw, 40px); letter-spacing: 0.02em; text-transform: uppercase; color: #2A2622; margin: 0 0 20px;"><span style="color: #7A5A46;">08</span> &nbsp;Conclusion</h2>
+      <div style="max-width: 760px; font-family: 'EB Garamond', Georgia, serif; font-size: 17px; line-height: 1.75; color: #3A342C;">
+        <p style="margin: 0 0 14px;">La représentation de l'IA comme menace tient davantage à des peurs humaines anciennes qu'à des données scientifiques. Le paradoxe est là : elle joue le rôle du méchant à l'écran, tandis que l'industrie l'emploie dans tous ses processus pour réduire les coûts et analyser les préférences du public.</p>
+        <p style="margin: 0;">Les conflits entre interprètes, scénaristes et grands studios en découlent en partie. Les dilemmes éthiques et juridiques — droits d'auteur, emploi — ne sont pas résolus. Tom Hanks pense qu'il continuera de tourner grâce à l'IA sans qu'on l'en distingue ; Steven Spielberg craint qu'elle retire aux films leur âme créative ; Guillermo del Toro y voit une insulte à la vie ; les frères Russo espèrent enfin tourner le film de leurs rêves. Il faudra une régulation, et une éducation.</p>
+      </div>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <section id="source" data-section data-screen-label="Cadre 11" style="display: grid; grid-template-columns: 34px minmax(0, 1fr) 34px; margin: 0 0 22px;">
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+    <div data-frame="1" style="position: relative; background: #F5F1E7; box-shadow: inset 0 0 90px rgba(90,70,40,0.13); padding: 48px clamp(20px, 5vw, 64px) 44px;">
+      <p style="position: absolute; top: 14px; left: 20px; margin: 0; font-family: 'Courier Prime', monospace; font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase; color: #7A5A46;">Cadre 11 — source</p>
+      <p style="font-family: 'Courier Prime', monospace; font-size: 12px; line-height: 1.8; color: #5C5245; max-width: 760px; margin: 0 0 26px;">Résumé rédigé à partir de : López Frías, C. (2024). <em>The paradox of Artificial Intelligence in Cinema</em>. In F. B. Gil &amp; P. F. Alves (dir.), <em>Comunicação, Artes e Culturas</em> (p. 5–25). CDIG, Cultura Digital, eBooks.NMd. Les citations sont traduites librement de l'anglais.</p>
+      <a href="reflexion.html" style="display: inline-flex; align-items: center; gap: 8px; padding: 13px 26px; background: #6E2A2A; color: #EDE3D0; font-family: 'Courier Prime', monospace; font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; transition: background 260ms ease, transform 260ms ease;" style-hover="background: #8E3A34; transform: translateY(-2px);">Bobine suivante : réflexion</a>
+    </div>
+    <div data-perf="1" style="background-color: #0E0C0A; background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23D9D2C2'/%3E%3C/svg%3E&quot;); background-repeat: repeat-y; background-position: center top; box-shadow: inset 1px 0 0 rgba(0,0,0,0.7), inset -1px 0 0 rgba(0,0,0,0.7);"></div>
+  </section>
+
+  <footer style="border-top: 1px solid #3A342B; padding: 26px clamp(16px, 4vw, 56px); display: flex; flex-wrap: wrap; gap: 12px; justify-content: space-between; font-family: 'Courier Prime', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: #8A7C64;">
+    <span>The Paradox of Artificial Intelligence in Cinema — Clémence Castillo</span>
+    <span>Dossier 01 / 04 · usage pédagogique</span>
+  </footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { active: 0, hover: -1, navVisible: false };
+
+  sections = [
+    { id: 'fiche', label: 'Cadre 01 · Fiche' },
+    { id: 'resume', label: 'Cadre 02 · Résumé' },
+    { id: 'introduction', label: 'Cadre 03 · Introduction' },
+    { id: 'scenario', label: 'Cadre 04 · Scénario' },
+    { id: 'preproduction', label: 'Cadre 05 · Préproduction' },
+    { id: 'effets', label: 'Cadre 06 · Effets' },
+    { id: 'postproduction', label: 'Cadre 07 · Postproduction' },
+    { id: 'distribution', label: 'Cadre 08 · Distribution' },
+    { id: 'fiction', label: 'Cadre 09 · Science-fiction' },
+    { id: 'conclusion', label: 'Cadre 10 · Conclusion' },
+    { id: 'source', label: 'Cadre 11 · Source' },
+  ];
+
+  componentDidMount() {
+    this.io = new IntersectionObserver((entries) => {
+      let best = null;
+      entries.forEach((e) => {
+        if (e.isIntersecting && (!best || e.intersectionRatio > best.intersectionRatio)) best = e;
+      });
+      if (this.reveal) this.reveal();
+      if (best) {
+        const i = this.sections.findIndex((s) => s.id === best.target.id);
+        if (i >= 0 && i !== this.state.active) this.setState({ active: i });
+      }
+    }, { rootMargin: '-35% 0px -45% 0px', threshold: [0, 0.25, 0.5, 1] });
+    this.sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) this.io.observe(el);
+    });
+    this.reveal = () => {
+      clearTimeout(this.navTimer);
+      if (!this.state.navVisible) this.setState({ navVisible: true });
+      if (this.navPinned || this.navAlways) return;
+      this.navTimer = setTimeout(() => {
+        if (this.navPinned || this.navAlways) return;
+        this.setState({ navVisible: false });
+      }, 1600);
+    };
+    this.navEvents = ['wheel', 'touchmove', 'keydown', 'scroll', 'pointerdown'];
+    this.navEvents.forEach((evt) => {
+      window.addEventListener(evt, this.reveal, { passive: true, capture: true });
+      document.addEventListener(evt, this.reveal, { passive: true, capture: true });
+    });
+  }
+
+  componentWillUnmount() {
+    if (this.io) this.io.disconnect();
+    clearTimeout(this.navTimer);
+    (this.navEvents || []).forEach((evt) => {
+      window.removeEventListener(evt, this.reveal, { capture: true });
+      document.removeEventListener(evt, this.reveal, { capture: true });
+    });
+  }
+
+  renderVals() {
+    const dots = this.sections.map((s, i) => {
+      const on = i === this.state.active || i === this.state.hover;
+      return {
+        label: s.label,
+        href: '#' + s.id,
+        onEnter: () => this.setState({ hover: i }),
+        onLeave: () => this.setState({ hover: -1 }),
+        dotStyle: [
+          'width:14px', 'height:16px', 'border-radius:4px', 'flex:0 0 auto',
+          'background:' + (on ? '#C9B8A6' : '#0F0E0C'),
+          'border:1px solid ' + (on ? '#C9B8A6' : '#3A342B'),
+          'box-shadow:' + (i === this.state.active ? '0 0 0 3px rgba(201,184,166,0.22)' : 'none'),
+          'transition:background 280ms ease, border-color 280ms ease, box-shadow 280ms ease',
+        ].join(';'),
+        labelStyle: [
+          "font-family:'Courier Prime', monospace", 'font-size:10px', 'letter-spacing:0.16em',
+          'text-transform:uppercase', 'white-space:nowrap', 'color:#EDE3D0',
+          'padding:5px 10px', 'background:#2A2622', 'border:1px solid #3A342B',
+          'position:absolute', 'right:40px', 'pointer-events:none',
+          'opacity:' + (on ? 1 : 0),
+          'transform:translateX(' + (on ? '0' : '8px') + ')',
+          'transition:opacity 280ms ease, transform 280ms ease',
+        ].join(';'),
+      };
+    });
+    const vis = this.state.navVisible || this.navAlways;
+    const navStyle = [
+      'position:fixed', 'right:0', 'top:0', 'bottom:0', 'width:46px',
+      'display:flex', 'flex-direction:column', 'align-items:center', 'justify-content:center',
+      'gap:7px', 'z-index:80', 'background:rgba(28,26,23,0.94)',
+      'border-left:1px solid #3A342B', 'box-shadow:-6px 0 18px rgba(0,0,0,0.45)',
+      'opacity:' + (vis ? 1 : 0),
+      'transform:translateX(' + (vis ? '0' : '10px') + ')',
+      'transition:opacity 380ms ease, transform 380ms ease',
+    ].join(';');
+    return {
+      dots,
+      navStyle,
+      onNavEnter: () => { this.navPinned = true; if (this.reveal) this.reveal(); },
+      onNavLeave: () => { this.navPinned = false; if (this.reveal) this.reveal(); },
+    };
+  }
+}
+</script>
+</body>
+</html>
