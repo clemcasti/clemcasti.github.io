@@ -188,7 +188,8 @@ window.DATA = {
     { r: "Personnes qui connaissent bien l'IA", v: 75 }
   ],
 
-  /* --- Sondage étudiant ---------------------------------------------------
+  /* --- Sondage étudiant (OPTION FUTURE, non affiché sur le site) -----------
+   * Voir « Option future » dans le README pour le réactiver.
    * ⚠️ VALEURS PROVISOIRES. Tant que placeholder vaut true, le site affiche
    * un bandeau d'avertissement et hachure les barres.
    * Pour publier les vrais résultats : remplacer les pourcentages,

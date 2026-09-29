@@ -42,7 +42,32 @@ Seul le texte placé dans un élément `data-compte` est compté : textes des é
 légendes, titres de graphiques. La bibliographie et les données des graphiques ne le sont
 pas. Le même total s'affiche en bas du site.
 
-**Publier les vrais résultats du sondage** : voir la fin de `QUESTIONNAIRE.md`.
+**Option future : le sondage étudiant.** Il n'est pas affiché pour l'instant. Tout est
+prêt pour le remettre : le questionnaire (`QUESTIONNAIRE.md`), les données (bloc `sondage`
+de `js/data.js`) et le code qui dessine les graphiques (`grapheSondage` dans `js/site.js`).
+Une fois les réponses reçues :
+
+1. Reporter les pourcentages dans `js/data.js` (voir la fin de `QUESTIONNAIRE.md`) et passer
+   `placeholder` à `false`.
+2. Coller le bloc ci-dessous dans `index.html`, épisode 4, juste avant le commentaire
+   `<!-- frise -->`, puis renuméroter la frise en « Plan 7 ».
+3. Ajouter un court paragraphe d'analyse, et revoir trois phrases qui annoncent le sondage
+   comme une piste future : la méthode (épisode 2), « Ce qui manque » (épisode 3) et
+   l'accroche du carton de l'épisode 4.
+4. Relancer le compteur de mots.
+
+```html
+    <!-- 6. sondage -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 6</span>Notre sondage auprès d'étudiants</h3>
+      <p>Nous avons diffusé un questionnaire auprès d'étudiants qui s'intéressent au cinéma, notamment autour de la Station Cinéma d'Argenton. Nous y avons repris une question du CNC, pour comparer nos réponses à celles des moins de 30 ans.</p>
+    </div>
+    <div class="graphe large apparait" style="max-width:900px" data-anime>
+      <div class="graphe__tete" data-compte><div><h4>Ce qu'en pensent des étudiants cinéphiles</h4><p class="graphe__sous">Questionnaire en ligne · répondants&nbsp;: <span id="sondage-n">en cours</span></p></div></div>
+      <div id="g-sondage"></div>
+      <p class="graphe__src">Source&nbsp;: sondage réalisé par Clémence et Ninon, 2026.</p>
+    </div>
+```
 
 **Régler la résistance des arrêts de fin d'épisode** : dans `js/site.js`, fonction `arrets()`.
 `SEUIL_MOLETTE` (défilement cumulé nécessaire), `SEUIL_DOIGT` (longueur du glissé sur

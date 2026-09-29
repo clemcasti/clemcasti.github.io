@@ -1,5 +1,8 @@
 # Questionnaire : les étudiants et l'IA au cinéma
 
+> **Option future.** Le sondage n'est pas affiché sur le site pour l'instant. Pour le
+> réactiver une fois les réponses reçues, suivre la section « Option future » du `README.md`.
+
 À copier dans Google Forms (ou Framaforms) puis à diffuser, par exemple auprès des membres
 de la Station Cinéma d'Argenton et des étudiants en cinéma ou en audiovisuel.
 
@@ -74,6 +77,4 @@ Durée : environ 3 minutes. Anonyme.
    - mettez le nombre de répondants dans `repondants` ;
    - passez `placeholder: true` à `placeholder: false`.
 3. Le bandeau « données provisoires » et les hachures disparaissent tout seuls.
-4. Ajoutez sous le graphique, dans `index.html` (Plan 6 de l'épisode 4), un court paragraphe
-   d'analyse : comparez la question 5 aux 50 % du CNC, et regardez si les étudiants désignent
-   les mêmes métiers que le rapport. Relancez ensuite le compteur de mots (voir le README).
+4. Réactivez la section sur le site : voir « Option future » dans le `README.md`.
