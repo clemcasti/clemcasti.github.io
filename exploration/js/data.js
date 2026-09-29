@@ -8,6 +8,29 @@
  */
 window.DATA = {
 
+  /* --- CNC p. 11 : les usages de l'IA à chaque étape de la vie d'un film --
+   * Reconstitution fidèle de la planche (cas d'usage regroupés par le CNC).
+   * Les anglicismes sont en italique, comme dans l'original.                */
+  chaine: [
+    { nom: "Développement", icone: "crayon", cas: [
+      "Écriture de scénario", "Analyse sémantique de scénario", "Analyse du potentiel d'un script",
+      "Assistance à la budgétisation", "<em>Moodboard</em> projet" ] },
+    { nom: "Préproduction et tournage", icone: "camera", cas: [
+      "Création de plannings de tournage", "<em>Storyboarding</em>",
+      "Caméras&nbsp;: <em>tracking</em> automatique", "Caméras&nbsp;: pré-paramétrage" ] },
+    { nom: "Postproduction, effets visuels et animation", icone: "ecran", cas: [
+      "Montage vidéo et son assisté par l'IA", "Création sonore et musicale", "Création d'effets spéciaux",
+      "Création d'œuvres d'animation", "Post-synchro, doublage et <em>lip-sync</em>", "Sous-titrage" ] },
+    { nom: "Préparation de la sortie", sous: "Distribution", icone: "megaphone", cas: [
+      "Création de bandes-annonces", "Création de contenus promotionnels", "Nouvelles possibilités marketing" ] },
+    { nom: "Exploitation en salles", icone: "salle", cas: [] },
+    { nom: "Diffusions linéaires et non linéaires", icone: "tele", cas: [
+      "Génération de métadonnées", "Optimisation du flux vidéo", "Optimisation des grilles de programme",
+      "Recommandation de contenu", "Placement de produit virtuel", "Vérification des obligations réglementaires" ] },
+    { nom: "Gestion du catalogue", icone: "classeur", cas: [
+      "Restauration", "<em>Clipping</em> automatisé", "Lutte contre le piratage", "Reddition de comptes" ] }
+  ],
+
   /* --- CNC p. 40 : cas d'usage par étape (cinéma & audiovisuel) ---------- */
   etapes: [
     { nom: "Développement",               cas: 4,  impact: 2 },

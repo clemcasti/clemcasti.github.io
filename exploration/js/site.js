@@ -176,6 +176,32 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Chaîne de valeur (CNC p. 11), reconstruite en HTML                    */
+  /* ------------------------------------------------------------------ */
+  var ICONES = {
+    crayon: '<path d="M4 20l4.2-1.1L19.3 7.8a1.6 1.6 0 000-2.3l-.8-.8a1.6 1.6 0 00-2.3 0L5.1 15.8 4 20z"/><path d="M14.5 6.5l3 3"/>',
+    camera: '<rect x="2.5" y="8" width="13" height="10" rx="2"/><path d="M15.5 11.5l6-3v9l-6-3"/><circle cx="6.5" cy="5" r="2"/><circle cx="11.5" cy="5" r="2"/>',
+    ecran: '<rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M9 20h6M12 16v4"/>',
+    megaphone: '<path d="M3 10v4h3l7 4.5v-13L6 10H3z"/><path d="M16.5 9.5a3.5 3.5 0 010 5M19 7a7 7 0 010 10"/>',
+    salle: '<rect x="4" y="4" width="16" height="9" rx="1"/><path d="M6 18h2M11 18h2M16 18h2M5 21h14"/>',
+    tele: '<rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 3l4 4 4-4"/>',
+    classeur: '<rect x="5" y="3" width="14" height="18" rx="1.5"/><path d="M5 12h14M10 7.5h4M10 16.5h4"/>'
+  };
+  function chaine() {
+    var box = $('#g-chaine');
+    if (!box) return;
+    D.chaine.forEach(function (e, i) {
+      var cas = e.cas.length
+        ? '<ul class="etape__cas">' + e.cas.map(function (c) { return '<li>' + c + '</li>'; }).join('') + '</ul>'
+        : '<p class="etape__vide">Pas d\'application directe identifiée</p>';
+      box.appendChild(el('li', { class: 'etape' + (e.cas.length ? '' : ' etape--vide'), style: '--i:' + i },
+        '<span class="etape__icone" aria-hidden="true"><svg viewBox="0 0 24 24">' + ICONES[e.icone] + '</svg></span>' +
+        '<div class="etape__corps"><span class="etape__n">' + String(i + 1).padStart(2, '0') + '</span>' +
+        '<h4 class="etape__nom">' + e.nom + (e.sous ? ' <small>(' + e.sous + ')</small>' : '') + '</h4>' + cas + '</div>'));
+    });
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Graphique 1 : cas d'usage par étape de la chaîne de valeur           */
   /* ------------------------------------------------------------------ */
   function grapheEtapes() {
@@ -285,6 +311,8 @@
         t.textContent = n ? n : '';
       });
       $$('button', filtres).forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.tout === '1') === tout)); });
+      var leg = $('#legende-jv');
+      if (leg) leg.hidden = !tout;
       var total = D.fiches.filter(function (f) { return tout || f.f !== 'jv'; }).length;
       $('#nuage-total').textContent = total;
     }
@@ -531,6 +559,11 @@
 
     // filet de sécurité : élan inertiel, barre de défilement, touche Fin…
     var dernierY = window.scrollY;
+    // Au chargement (lien profond, retour arrière), la page peut sauter sans que l'on ait
+    // suivi le trajet : on repart de la position réelle, une fois tous les « load » passés.
+    function resynchroniser() { setTimeout(function () { dernierY = window.scrollY; }, 0); }
+    window.addEventListener('load', resynchroniser);
+    window.addEventListener('pageshow', resynchroniser);
     window.addEventListener('scroll', function () {
       var y = window.scrollY;
       if (estLibre()) { prolonger(); dernierY = y; return; }  // prolonge tant que ça défile, dans la limite du plafond
@@ -576,6 +609,7 @@
   compteMots(); // avant le rendu des graphiques : seul le texte rédigé est compté
   generique();
   projection();
+  chaine();
   grapheEtapes();
   grapheNuage();
   grapheMetiers();

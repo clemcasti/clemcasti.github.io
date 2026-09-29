@@ -16,7 +16,7 @@ construction. GitHub Pages le publie tel quel depuis ce dossier.
 | `css/site.css` | Styles. Les couleurs et polices sont définies une seule fois, en haut (`:root`) |
 | `js/data.js` | **Toutes les données chiffrées.** Pour modifier un graphique, c'est ici |
 | `js/site.js` | Comportements : générique, navigation, animations, dessin des graphiques |
-| `img/` | Planches du rapport du CNC et visuels de *The Mandalorian* (via ÉSEC) |
+| `img/` | Visuels de *The Mandalorian* (via ÉSEC) et 5 photographies de Wikimedia Commons |
 | `QUESTIONNAIRE.md` | Le sondage à diffuser, et comment reporter les résultats |
 | `scripts/wordcount.js` | Compte les mots de la composante écrite |
 
@@ -55,7 +55,8 @@ l'ancienne version en cache.
 
 ## D'où viennent les données
 
-- **Rapport CNC × BearingPoint, avril 2024** (115 p.) : les 62 fiches de cas d'usage ont été
+- **Rapport CNC × BearingPoint, avril 2024** (115 p.) : la chaîne de valeur de l'épisode 1
+  est redessinée en HTML d'après la planche de la p. 11 (bloc `chaine` de `js/data.js`) ; les 62 fiches de cas d'usage ont été
   relevées une à une (maturité et impact, notés de 0 à 3, p. 46-107). Le nombre de cas par
   étape vient de la p. 40. Le niveau de risque des 27 métiers a été lu sur la planche de la
   p. 26, d'après la couleur du cadre de chaque métier.
@@ -68,6 +69,20 @@ La bibliographie complète, numérotée, est dans le générique de fin du site.
 
 ## Droits des images
 
-Les planches du CNC et les images de *The Mandalorian* (Lucasfilm / Disney+, reprises de
-l'article de l'ÉSEC) sont utilisées à des fins pédagogiques, avec leur source affichée
-sous chaque image. Les visuels des cartes d'épisodes sont dessinés en CSS.
+Les images de *The Mandalorian* (Lucasfilm / Disney+, reprises de l'article de l'ÉSEC)
+sont utilisées à des fins pédagogiques, avec leur source affichée sous chaque image.
+
+Les cinq photographies viennent de Wikimedia Commons, sous licence libre. Leurs licences
+(CC BY et CC BY-SA) imposent de citer l'auteur, la licence et la source : c'est fait sous
+chaque image, avec un lien vers la page d'origine. Ne pas supprimer ces crédits.
+
+| Fichier | Auteur | Licence |
+|---|---|---|
+| `rotoscope-brevet.webp` | Brevet US 1 242 674, Max Fleischer, 1915 (couleurs inversées) | Domaine public |
+| `greve-scenaristes.webp` | David James Henry | CC BY-SA 4.0 |
+| `greve-acteurs.webp` | Eden, Janine et Jim | CC BY 2.0 |
+| `tournage-fond-vert.webp` | Manfred Werner (Tsui) | CC BY-SA 3.0 |
+| `salle-cinema.webp` | Coen | CC BY-SA 4.0 |
+
+Les schémas (chaîne de valeur, graphiques) sont redessinés d'après le rapport du CNC, et
+les visuels des cartes d'épisodes sont dessinés en CSS.
