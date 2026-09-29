@@ -52,7 +52,7 @@ Une fois les réponses reçues :
 2. Coller le bloc ci-dessous dans `index.html`, épisode 4, juste avant le commentaire
    `<!-- frise -->`, puis renuméroter la frise en « Plan 7 ».
 3. Ajouter un court paragraphe d'analyse, et revoir trois phrases qui annoncent le sondage
-   comme une piste future : la méthode (épisode 2), « Ce qui manque » (épisode 3) et
+   comme une piste future : la méthode (épisode 2), « Une piste pour la suite » (épisode 3) et
    l'accroche du carton de l'épisode 4.
 4. Relancer le compteur de mots.
 
