@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Remplacer / Transformer — l'IA et les artistes du cinéma</title>
+<meta name="description" content="Exploration numérique de Clémence Castillo et Ninon : l'intelligence artificielle va-t-elle remplacer les artistes du cinéma, ou transformer leur manière de créer ?">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="Remplacer / Transformer">
+<meta property="og:description" content="L'IA va-t-elle remplacer les artistes du cinéma, ou transformer leur manière de créer ? Une exploration en quatre épisodes.">
+<meta property="og:image" content="img/esec-luke-2.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23000'/%3E%3Cpath d='M9 5h4l6 22h-4z' fill='%23e50914'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/site.css?v=9">
+</head>
+<body>
+
+<!-- ===================================================================== -->
+<!-- 0. Générique d'ouverture                                               -->
+<!-- ===================================================================== -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="intro__barres"><span></span><span></span><span></span><span></span></div>
+  <p class="intro__titre">Remplacer <b>/</b> Transformer<small>Une exploration de Clémence et Ninon</small></p>
+  <button type="button" class="intro__passer" id="intro-passer">Passer ▸</button>
+</div>
+
+<!-- ===================================================================== -->
+<!-- Barre du haut                                                          -->
+<!-- ===================================================================== -->
+<header class="barre" id="barre">
+  <a class="logo" href="#projection" aria-label="Retour au début">R<span>/</span>T</a>
+  <nav aria-label="Épisodes">
+    <a href="#ep1"><span class="num">01</span><span class="txt">Pourquoi ce sujet</span></a>
+    <a href="#ep2"><span class="num">02</span><span class="txt">La question</span></a>
+    <a href="#ep3"><span class="num">03</span><span class="txt">Revue de littérature</span></a>
+    <a href="#ep4"><span class="num">04</span><span class="txt">Les données</span></a>
+  </nav>
+  <span class="progression" id="progression" aria-hidden="true"></span>
+</header>
+
+<main>
+
+<!-- ===================================================================== -->
+<!-- 1. Salle de projection                                                 -->
+<!-- ===================================================================== -->
+<section class="projection" id="projection" aria-label="Court-métrage d'ouverture">
+  <p class="projection__sur">Avant-programme · Court-métrage</p>
+
+  <div class="ecran">
+    <button type="button" class="affiche" id="affiche" data-video="An2eWzRvTFE" data-debut="14"
+            aria-label="Lancer le court-métrage /IMAGINE d'Anna Apter (lecteur YouTube)">
+      <span>
+        <span class="affiche__titre"><em>/</em>IMAGINE</span>
+        <span class="affiche__meta">Un film d'Anna Apter · 2023 · 2 min 12</span>
+      </span>
+      <span class="affiche__lecture"><span class="triangle" aria-hidden="true"></span>Lecture</span>
+    </button>
+  </div>
+
+  <p class="ecran__legende">
+    <span><strong>/IMAGINE</strong>, Anna Apter, 2023. Images générées avec Midjourney, puis animées à la main.</span>
+    <span class="note">Primé au Nikon Film Festival · diffusé par Short of the Week · le lecteur YouTube ne se charge qu'au clic</span>
+  </p>
+
+  <a class="entrer" href="#catalogue"><span class="triangle" aria-hidden="true"></span>Accéder à l'exploration</a>
+  <p class="entrer__sous">4 épisodes · environ 20 minutes</p>
+</section>
+
+<!-- ===================================================================== -->
+<!-- 2. Catalogue                                                           -->
+<!-- ===================================================================== -->
+<section id="catalogue" aria-label="Présentation">
+  <div class="billboard">
+    <div class="billboard__fond" aria-hidden="true"></div>
+    <div class="billboard__contenu apparait" data-compte>
+      <span class="badge"><span class="n" aria-hidden="true">R</span>Exploration numérique</span>
+      <h1>Remplacer <b>/</b><br>Transformer</h1>
+      <div class="meta-ligne">
+        <span class="vert">Pertinent à 98 %</span><span>2026</span><span class="cadre">Tous publics</span><span>4 épisodes</span><span class="cadre">Sources vérifiées</span>
+      </div>
+      <p class="synopsis">Deux étudiantes cinéphiles face à l'arrivée de l'IA générative dans le cinéma. Elle fait gagner des semaines aux équipes d'effets visuels, rajeunit Luke Skywalker, écrit, double et monte. Mais alors&nbsp;: va-t-elle remplacer les artistes, ou transformer leur manière de créer&nbsp;?</p>
+      <div class="boutons">
+        <a class="btn btn--blanc" href="#ep1"><span class="triangle" aria-hidden="true"></span>Lecture</a>
+        <a class="btn btn--gris" href="#ep2"><span class="i" aria-hidden="true">i</span>La problématique</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="rangee">
+    <h2>Épisodes</h2>
+    <div class="rangee__piste">
+      <a class="carte" href="#ep1">
+        <span class="carte__art art-1" aria-hidden="true"></span><span class="carte__num" aria-hidden="true">1</span>
+        <span class="carte__duree">5 min</span>
+        <span class="carte__txt"><span class="carte__ep">Épisode 1</span><span class="carte__titre">Pourquoi ce sujet</span>
+          <span class="carte__resume">Une salle associative, une passion commune, et une technologie qui s'invite partout.</span></span>
+      </a>
+      <a class="carte" href="#ep2">
+        <span class="carte__art art-2" aria-hidden="true"></span><span class="carte__num" aria-hidden="true">2</span>
+        <span class="carte__duree">4 min</span>
+        <span class="carte__txt"><span class="carte__ep">Épisode 2</span><span class="carte__titre">La question</span>
+          <span class="carte__resume">Remplacer ou transformer&nbsp;? Quatre tensions, trois hypothèses, une méthode.</span></span>
+      </a>
+      <a class="carte" href="#ep3">
+        <span class="carte__art art-3" aria-hidden="true"></span><span class="carte__num" aria-hidden="true">3</span>
+        <span class="carte__duree">6 min</span>
+        <span class="carte__txt"><span class="carte__ep">Épisode 3</span><span class="carte__titre">Revue de littérature</span>
+          <span class="carte__resume">Rapports, enquêtes, recherche et syndicats&nbsp;: qui dit quoi, et avec quelles limites.</span></span>
+      </a>
+      <a class="carte" href="#ep4">
+        <span class="carte__art art-4" aria-hidden="true"></span><span class="carte__num" aria-hidden="true">4</span>
+        <span class="carte__duree">6 min</span>
+        <span class="carte__txt"><span class="carte__ep">Épisode 4</span><span class="carte__titre">Les données</span>
+          <span class="carte__resume">62 cas d'usage, 27 métiers, et la ligne qui sépare ceux qui conçoivent de ceux qui exécutent.</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ===================================================================== -->
+<!-- ÉPISODE 1 — Pourquoi ce sujet                                         -->
+<!-- ===================================================================== -->
+<article class="episode" id="ep1" aria-labelledby="ep1-titre">
+  <header class="carton">
+    <div class="amorce" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="cercle" cx="50" cy="50" r="48"/><circle class="cercle" cx="50" cy="50" r="38"/><circle class="balai" cx="50" cy="50" r="25"/></svg></div>
+    <div class="carton__contenu" data-compte>
+      <p class="carton__ep">Épisode 1</p>
+      <h2 id="ep1-titre">Pourquoi ce sujet</h2>
+      <p class="carton__accroche">Deux spectatrices, une salle de cinéma associative, et une technologie qui s'invite partout.</p>
+      <p class="carton__meta">5 min de lecture</p>
+    </div>
+    <span class="defiler" aria-hidden="true"></span>
+  </header>
+
+  <div class="corps">
+    <div class="prose" data-compte>
+      <p class="lettrine">Avec Ninon, nous avons choisi de travailler sur le cinéma, et plus précisément sur un paradoxe&nbsp;: celui que pose l'arrivée de l'intelligence artificielle générative dans la création des films. Ce choix n'a rien d'un hasard. Nous aimons toutes les deux le cinéma, et nous faisons partie de la Station Cinéma d'Argenton, dont Ninon est la présidente. Programmer des séances, discuter des films après la projection, suivre ce qui change dans le métier&nbsp;: c'est un peu notre quotidien. Depuis deux ou trois ans, un sujet revient sans cesse dans ces discussions, celui de l'IA.</p>
+
+      <h3><span class="sc">Scène 1</span>D'abord, un outil</h3>
+      <p>L'intelligence artificielle est d'abord présentée comme un outil au service des professionnels. Elle exécute très vite des tâches longues et répétitives, que des équipes entières faisaient jusqu'ici à la main&nbsp;:</p>
+      <ul class="puces">
+        <li>Rotoscopie</li><li>Tracking</li><li>Dérushage</li><li>Sous-titres</li><li>Montage</li><li>Storyboard</li><li>Décors</li><li>Effets spéciaux</li><li>Voix</li>
+      </ul>
+      <p>Elle fait gagner du temps, baisse certains coûts, et permet à de jeunes réalisateurs ou à de petites productions de mener des projets qui auraient été hors de portée il y a peu. Le CNC, dans une étude menée avec le cabinet BearingPoint en 2024, a recensé ces usages étape par étape, de l'écriture du scénario à la gestion du catalogue<a class="appel" href="#ref-1">1</a>. Le tableau ci-dessous en donne la vue d'ensemble.</p>
+    </div>
+
+    <figure class="figure large apparait">
+      <img class="zoomable" src="img/cnc-chaine-de-valeur.webp" width="2000" height="1064" loading="lazy"
+           alt="Planche du rapport du CNC : les principaux cas d'usage de l'IA pour chacune des sept étapes de la vie d'un film, du développement à la gestion du catalogue. La colonne « Exploitation salles » indique : pas d'application directe identifiée.">
+      <figcaption data-compte><b>Les usages de l'IA à chaque étape de la vie d'un film.</b> Une seule colonne reste vide&nbsp;: l'exploitation en salles. Cliquez pour agrandir.
+        <span class="credit">CNC × BearingPoint, 2024, p. 11</span></figcaption>
+    </figure>
+
+    <div class="prose" data-compte>
+      <h3><span class="sc">Scène 2</span>Le cas <em>The Mandalorian</em></h3>
+      <p>Un exemple nous a particulièrement marquées&nbsp;: <em>The Mandalorian</em>, la série de Disney+ située dans l'univers de Star Wars. En post-production, les équipes ont eu recours à une rotoscopie assistée par l'IA, c'est-à-dire au détourage automatique des personnages et des objets, image par image. Selon la société Numalis, citée par l'école de cinéma ÉSEC, le temps consacré à cette tâche aurait été réduit de 90&nbsp;%<a class="appel" href="#ref-8">8</a>. Les graphistes ont pu consacrer ce temps gagné à des plans plus créatifs.</p>
+      <p>Dans la deuxième saison, l'IA a aussi servi à rajeunir le visage de Luke Skywalker, joué par Mark Hamill, grâce à un deepfake. L'acteur avait donné son accord. Son visage de jeune homme, lui, a été recomposé par une machine à partir d'images anciennes.</p>
+    </div>
+
+    <div class="duo large apparait">
+      <figure class="figure figure--sombre">
+        <img class="zoomable" src="img/esec-luke-1.webp" width="880" height="495" loading="lazy"
+             alt="Planche de making-of : Luke Skywalker tourné sur fond bleu, puis plusieurs étapes de reconstruction de son visage rajeuni.">
+        <figcaption data-compte><b>Derrière l'image.</b> Tournage sur fond bleu et étapes de reconstruction du visage.
+          <span class="credit">Lucasfilm / Disney+, via ÉSEC</span></figcaption>
+      </figure>
+      <figure class="figure figure--sombre">
+        <img class="zoomable" src="img/esec-luke-2.webp" width="880" height="495" loading="lazy"
+             alt="Luke Skywalker jeune, capuche noire, dans un couloir de vaisseau, tel qu'il apparaît à l'écran dans The Mandalorian.">
+        <figcaption data-compte><b>À l'écran.</b> Le jeune Luke Skywalker de la saison 2, rajeuni par deepfake.
+          <span class="credit">Lucasfilm / Disney+, via ÉSEC</span></figcaption>
+      </figure>
+    </div>
+
+    <div class="meme apparait" role="img" aria-label="Mème en deux cases. À gauche, la rotoscopie en 2015 : détourer un personnage image par image pendant trois semaines. À droite, en 2024 : cliquer sur détourer et aller prendre un café.">
+      <div class="gauche" data-compte><small>La rotoscopie en 2015</small><span class="emoji" aria-hidden="true">😩</span><p>Détourer un personnage image par image pendant trois semaines</p></div>
+      <div class="droite" data-compte><small>La rotoscopie en 2024</small><span class="emoji" aria-hidden="true">☕</span><p>Cliquer sur «&nbsp;détourer&nbsp;» et aller prendre un café</p></div>
+    </div>
+
+    <div class="prose" data-compte>
+      <p>Le mème fait sourire. Le graphiste qui facturait ces trois semaines, beaucoup moins.</p>
+
+      <h3><span class="sc">Scène 3</span>Là où tout se complique</h3>
+      <p>C'est justement ce qui nous a posé question. Si l'IA aide les artistes à créer, elle peut aussi, peu à peu, faire à leur place des tâches jusque-là réservées aux humains. Elle ne sert plus seulement à assister&nbsp;: elle prend place dans le processus de création lui-même.</p>
+      <p>La question touche d'abord les métiers. Si le détourage, le doublage ou le sous-titrage s'automatisent, les équipes d'effets visuels, d'animation ou de post-production auront peut-être besoin de moins de monde. Elle touche aussi l'art. Le cinéma repose sur l'imagination, les choix et la sensibilité de celles et ceux qui le font. Si une part croissante d'un film est produite par une machine, que reste-t-il de ce qui rend une œuvre unique et humaine&nbsp;?</p>
+      <p>Il y a aussi un risque d'uniformisation. Les IA apprennent à partir d'images et de récits qui existent déjà&nbsp;: elles reproduisent volontiers des styles et des tendances connus. Elles pourraient pousser les créateurs vers des choix jugés «&nbsp;sûrs&nbsp;», plus susceptibles de plaire, au lieu de les encourager à prendre des risques.</p>
+      <p>Enfin, il y a le droit et l'éthique. Un acteur doit-il accepter que son visage ou sa voix soient copiés et modifiés&nbsp;? Avec quelles œuvres a-t-on le droit d'entraîner une IA&nbsp;? À qui appartient une image générée&nbsp;? Et comment savoir, quand on est spectateur, si ce que l'on voit a été fabriqué par une machine&nbsp;?</p>
+    </div>
+
+    <div class="suivant"><a class="btn btn--blanc" href="#ep2"><span class="triangle" aria-hidden="true"></span>Épisode suivant</a></div>
+  </div>
+</article>
+
+<!-- ===================================================================== -->
+<!-- ÉPISODE 2 — La question                                               -->
+<!-- ===================================================================== -->
+<article class="episode" id="ep2" aria-labelledby="ep2-titre">
+  <header class="carton">
+    <div class="amorce" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="cercle" cx="50" cy="50" r="48"/><circle class="cercle" cx="50" cy="50" r="38"/><circle class="balai" cx="50" cy="50" r="25"/></svg></div>
+    <div class="carton__contenu" data-compte>
+      <p class="carton__ep">Épisode 2</p>
+      <h2 id="ep2-titre">La question</h2>
+      <p class="carton__accroche">Remplacer ou transformer&nbsp;: deux verbes, et toute une industrie entre les deux.</p>
+      <p class="carton__meta">4 min de lecture</p>
+    </div>
+    <span class="defiler" aria-hidden="true"></span>
+  </header>
+
+  <div class="corps">
+    <div class="prose" data-compte>
+      <p class="lettrine">Ce qui nous a frappées en lisant sur le sujet, c'est que même les artistes qui utilisent l'IA restent partagés. La réalisatrice et comédienne Anna Apter en est un bon exemple. En 2023, elle réalise <em>/Imagine</em>, le court-métrage qui ouvre ce site, en générant ses images avec Midjourney à partir de son propre scénario, avant de les animer elle-même. Le film est primé au Nikon Film Festival<a class="appel" href="#ref-1">1</a>. Pourtant, quand elle en parle, elle dit avoir été autant effrayée que fascinée par ce que la machine produisait<a class="appel" href="#ref-13">13</a><a class="appel" href="#ref-14">14</a>. Pour elle, l'enjeu était de réfléchir à ce que l'on peut créer <em>avec</em> l'IA, et non de la laisser créer à notre place.</p>
+      <p>C'est ce paradoxe qui nous intéresse. L'IA permet de produire plus vite, de réduire certains coûts et d'ouvrir de nouvelles possibilités. En même temps, elle remet en question des métiers, la place de l'artiste, et jusqu'à l'idée de ce qu'est une création humaine. D'où notre question&nbsp;:</p>
+    </div>
+
+    <p class="problematique apparait" data-compte>L'IA va-t-elle <b>remplacer</b> les artistes du cinéma, ou <b>transformer</b> leur manière de créer&nbsp;?</p>
+
+    <div class="prose" data-compte>
+      <h3><span class="sc">Scène 1</span>Quatre lignes de tension</h3>
+    </div>
+    <div class="grille-4 large apparait" data-compte>
+      <div class="tension"><span class="n">01</span><h4>Les métiers</h4><p>Quelles tâches disparaissent, lesquelles changent, et qui en fait les frais&nbsp;?</p></div>
+      <div class="tension"><span class="n">02</span><h4>Le geste artistique</h4><p>Un film reste-t-il une œuvre d'auteur quand une partie de ses images est générée&nbsp;?</p></div>
+      <div class="tension"><span class="n">03</span><h4>L'uniformisation</h4><p>Des modèles entraînés sur le passé peuvent-ils produire autre chose que du déjà-vu&nbsp;?</p></div>
+      <div class="tension"><span class="n">04</span><h4>Le droit et l'éthique</h4><p>Consentement des acteurs, données d'entraînement, droits sur les images, transparence envers le public.</p></div>
+    </div>
+
+    <div class="prose" data-compte>
+      <h3><span class="sc">Scène 2</span>Nos hypothèses</h3>
+      <p>Avant d'aller chercher les données, nous avons posé trois hypothèses, que la suite du site met à l'épreuve.</p>
+      <ol class="hypotheses">
+        <li><strong>L'IA remplace des tâches plutôt que des métiers entiers.</strong> Dans la plupart des cas, elle transforme d'abord la façon de travailler.</li>
+        <li><strong>Là où il y a remplacement, il touche d'abord les métiers d'exécution</strong>, beaucoup plus que ceux de conception.</li>
+        <li><strong>La valeur se déplace</strong> du plateau de tournage vers la post-production et vers la maîtrise des outils.</li>
+      </ol>
+
+      <h3><span class="sc">Scène 3</span>Notre méthode</h3>
+      <p>Pour tester ces hypothèses, nous avons procédé en trois temps. Nous avons d'abord comparé des usages concrets de l'IA dans le cinéma en nous appuyant sur les 62 fiches de la cartographie du CNC&nbsp;: dans quels domaines intervient-elle, qu'apporte-t-elle, et aide-t-elle les artistes ou les remplace-t-elle&nbsp;? Nous avons ensuite croisé ces résultats avec d'autres données sur l'emploi et sur la perception du public. Enfin, nous avons interrogé des étudiants qui s'intéressent au cinéma, pour savoir s'ils voient l'IA comme un outil utile, comme une menace, ou comme un simple changement dans leur futur métier.</p>
+    </div>
+
+    <div class="suivant"><a class="btn btn--blanc" href="#ep3"><span class="triangle" aria-hidden="true"></span>Épisode suivant</a></div>
+  </div>
+</article>
+
+<!-- ===================================================================== -->
+<!-- ÉPISODE 3 — Revue de littérature                                      -->
+<!-- ===================================================================== -->
+<article class="episode" id="ep3" aria-labelledby="ep3-titre">
+  <header class="carton">
+    <div class="amorce" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="cercle" cx="50" cy="50" r="48"/><circle class="cercle" cx="50" cy="50" r="38"/><circle class="balai" cx="50" cy="50" r="25"/></svg></div>
+    <div class="carton__contenu" data-compte>
+      <p class="carton__ep">Épisode 3</p>
+      <h2 id="ep3-titre">Revue de littérature</h2>
+      <p class="carton__accroche">Rapports, enquêtes, recherche et podcasts&nbsp;: qui dit quoi, et avec quelles limites.</p>
+      <p class="carton__meta">6 min de lecture</p>
+    </div>
+    <span class="defiler" aria-hidden="true"></span>
+  </header>
+
+  <div class="corps">
+    <div class="prose" data-compte>
+      <p class="lettrine">La littérature sur l'IA au cinéma est récente, abondante et très inégale&nbsp;: beaucoup d'articles de presse, quelques rapports institutionnels, encore peu de recherche universitaire. Pour nous y retrouver, nous avons classé nos lectures par familles, en notant pour chacune ce qu'elle apporte et ce qu'elle laisse de côté.</p>
+
+      <h3><span class="sc">Scène 1</span>Avant l'IA&nbsp;: deux lunettes théoriques</h3>
+      <p>Deux textes plus anciens nous ont aidées à formuler le problème. Walter Benjamin, dans <em>L'Œuvre d'art à l'époque de sa reproductibilité technique</em> (1935), montre que chaque nouvelle technique de reproduction modifie notre rapport à l'œuvre&nbsp;: avec la photographie puis le cinéma, l'œuvre perd son «&nbsp;aura&nbsp;», cette présence unique liée à un lieu et à un moment<a class="appel" href="#ref-6">6</a>. L'IA prolonge sa question&nbsp;: que devient l'œuvre quand l'image n'est plus seulement reproduite par une machine, mais produite par elle&nbsp;?</p>
+      <p>Le sociologue Howard Becker, dans <em>Les Mondes de l'art</em> (1982), rappelle qu'une œuvre n'est jamais le produit d'un génie isolé&nbsp;: elle naît d'une chaîne de coopération entre de nombreux métiers, dont beaucoup restent invisibles<a class="appel" href="#ref-7">7</a>. Un film en est l'exemple parfait, il suffit de regarder un générique. Cette idée nous a beaucoup servi. L'IA ne remplace pas «&nbsp;l'artiste&nbsp;» en général&nbsp;: elle s'insère à un endroit précis de la chaîne. Tout l'enjeu est de savoir lequel.</p>
+
+      <h3><span class="sc">Scène 2</span>Quatre familles de sources</h3>
+    </div>
+
+    <div class="fiches large apparait" data-compte>
+      <article class="fiche">
+        <span class="fiche__genre">Institutionnel</span>
+        <h4>Quel impact de l'IA sur les filières du cinéma, de l'audiovisuel et du jeu vidéo&nbsp;?</h4>
+        <p class="fiche__ref">CNC × BearingPoint, 2024<a class="appel" href="#ref-1">1</a></p>
+        <dl>
+          <dt>Apport</dt><dd>La cartographie la plus complète en français&nbsp;: 62 cas d'usage notés selon leur maturité et leur impact sur les métiers, à partir d'une recherche documentaire et d'une trentaine d'entretiens avec des professionnels.</dd>
+          <dt>Limite</dt><dd class="limite">Les notes reflètent l'avis d'experts en janvier 2024, pas des mesures. Le rapport décrit des tendances, pas des effets observés.</dd>
+        </dl>
+      </article>
+      <article class="fiche">
+        <span class="fiche__genre">Économie du travail</span>
+        <h4>Future Unscripted&nbsp;: l'impact de l'IA générative sur l'emploi</h4>
+        <p class="fiche__ref">CVL Economics, 2024<a class="appel" href="#ref-3">3</a>&nbsp;; Eloundou et al., 2023<a class="appel" href="#ref-4">4</a></p>
+        <dl>
+          <dt>Apport</dt><dd>Une enquête auprès de 300 dirigeants du divertissement américain, qui chiffre les emplois susceptibles d'être «&nbsp;perturbés&nbsp;» d'ici 2026. Elle s'appuie sur les travaux d'Eloundou et de ses coauteurs, qui mesurent l'exposition des métiers aux modèles de langage.</dd>
+          <dt>Limite</dt><dd class="limite">Commandée par un syndicat, The Animation Guild, et fondée sur les prévisions des employeurs eux-mêmes. C'est une anticipation, pas un constat.</dd>
+        </dl>
+      </article>
+      <article class="fiche">
+        <span class="fiche__genre">Recherche</span>
+        <h4>Generative AI for Film Creation: A Survey of Recent Advances</h4>
+        <p class="fiche__ref">Zhang et al., 2025<a class="appel" href="#ref-5">5</a></p>
+        <dl>
+          <dt>Apport</dt><dd>Analyse la fabrication de films récents réalisés avec l'IA et recueille l'avis des artistes&nbsp;: ils réclament surtout plus de contrôle, des personnages cohérents d'un plan à l'autre et des retouches plus précises.</dd>
+          <dt>Limite</dt><dd class="limite">Un regard d'ingénieurs, centré sur la technique. L'emploi et le droit y restent secondaires.</dd>
+        </dl>
+      </article>
+      <article class="fiche">
+        <span class="fiche__genre">Professionnels et syndicats</span>
+        <h4>Accords WGA et SAG-AFTRA, article de l'ÉSEC</h4>
+        <p class="fiche__ref">2023-2025<a class="appel" href="#ref-8">8</a><a class="appel" href="#ref-9">9</a><a class="appel" href="#ref-10">10</a></p>
+        <dl>
+          <dt>Apport</dt><dd>Le regard du terrain. Après 148 jours de grève, les scénaristes américains ont obtenu que l'IA ne puisse ni leur être imposée ni leur retirer leur crédit d'auteur&nbsp;; les acteurs, que toute réplique numérique exige leur consentement.</dd>
+          <dt>Limite</dt><dd class="limite">Ces textes défendent une position. Ils disent ce que les professionnels craignent ou exigent plus qu'ils ne décrivent ce qui se passe.</dd>
+        </dl>
+      </article>
+    </div>
+
+    <div class="prose" data-compte>
+      <h3><span class="sc">Scène 3</span>Ce sur quoi les sources s'accordent</h3>
+      <p>Malgré leurs différences, ces sources convergent sur trois points. D'abord, l'IA est déjà là, et surtout en post-production&nbsp;: montage, effets visuels, son, sous-titres. Ensuite, les tâches techniques et répétitives sont bien plus exposées que les tâches de conception. Le CNC l'écrit clairement&nbsp;: les métiers «&nbsp;à forte composante créative&nbsp;», comme celui de réalisateur, ont un «&nbsp;potentiel d'automatisation faible&nbsp;»<a class="appel" href="#ref-1">1</a>. Enfin, toutes soulignent le flou juridique&nbsp;: le rapport parle d'un encadrement «&nbsp;encore naissant&nbsp;», qu'il s'agisse de la jurisprudence ou des accords professionnels. L'AI Act européen, adopté en 2024, impose surtout de la transparence sur les données d'entraînement<a class="appel" href="#ref-11">11</a>.</p>
+
+      <h3><span class="sc">Scène 4</span>Ce sur quoi elles divergent</h3>
+      <p>Elles divergent en revanche sur l'ampleur des effets. Les dirigeants interrogés par CVL Economics prévoient des suppressions massives. Le CNC parle plutôt de métiers qui évoluent, qui fusionnent, et d'un «&nbsp;transfert de valeur des industries de tournage&nbsp;» vers la post-production. L'écart tient en partie à qui parle&nbsp;: un employeur qui cherche à réduire ses coûts ne voit pas l'IA comme un organisme public chargé de soutenir toute une filière.</p>
+
+      <h3><span class="sc">Scène 5</span>Ce qui manque</h3>
+      <p>Une chose nous a frappées&nbsp;: presque aucune de ces sources ne donne la parole aux jeunes, à celles et ceux qui entreront dans ces métiers dans cinq ou dix ans. Ce sont pourtant les premiers concernés. Le CNC le note lui-même&nbsp;: les profils juniors réalisent souvent des tâches d'exécution, les plus faciles à automatiser, ce qui pourrait fragiliser l'entrée dans la profession. C'est pour combler un peu ce manque que nous avons décidé d'interroger des étudiants.</p>
+    </div>
+
+    <div class="rangee large" style="margin-bottom:0">
+      <h2 style="margin-left:0">À écouter, à regarder</h2>
+      <div class="rangee__piste" style="padding-left:0;padding-right:0">
+        <a class="carte carte--petite" href="https://www.radiofrance.fr/franceculture/podcasts/le-reportage-de-la-redaction/au-cinema-une-actrice-en-devenir-8562014" target="_blank" rel="noopener">
+          <span class="carte__art art-5" aria-hidden="true"></span><span class="media__icone">Podcast · 8 min</span>
+          <span class="onde" aria-hidden="true"><i style="height:30%"></i><i style="height:70%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:35%"></i><i style="height:80%"></i><i style="height:50%"></i><i style="height:65%"></i><i style="height:25%"></i><i style="height:75%"></i><i style="height:40%"></i></span>
+          <span class="carte__txt"><span class="carte__ep">France Culture · 2023</span><span class="carte__titre">Au cinéma, une actrice en devenir</span></span>
+        </a>
+        <a class="carte carte--petite" href="https://www.radiofrance.fr/franceculture/podcasts/le-meilleur-des-mondes/comment-l-ia-fait-son-cinema-8526365" target="_blank" rel="noopener">
+          <span class="carte__art art-5" aria-hidden="true"></span><span class="media__icone">Podcast · 60 min</span>
+          <span class="onde" aria-hidden="true"><i style="height:60%"></i><i style="height:35%"></i><i style="height:85%"></i><i style="height:45%"></i><i style="height:70%"></i><i style="height:30%"></i><i style="height:55%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:65%"></i><i style="height:50%"></i><i style="height:75%"></i></span>
+          <span class="carte__txt"><span class="carte__ep">France Culture · 2024</span><span class="carte__titre">Comment l'IA fait-elle son cinéma&nbsp;?</span></span>
+        </a>
+        <a class="carte carte--petite" href="https://www.radiofrance.fr/franceinter/podcasts/zoom-zoom-zen/zoom-zoom-zen-du-jeudi-31-aout-2023-4101110" target="_blank" rel="noopener">
+          <span class="carte__art art-5" aria-hidden="true"></span><span class="media__icone">Radio</span>
+          <span class="onde" aria-hidden="true"><i style="height:45%"></i><i style="height:80%"></i><i style="height:30%"></i><i style="height:60%"></i><i style="height:90%"></i><i style="height:40%"></i><i style="height:70%"></i><i style="height:35%"></i><i style="height:55%"></i><i style="height:85%"></i><i style="height:25%"></i><i style="height:60%"></i></span>
+          <span class="carte__txt"><span class="carte__ep">France Inter · 2023</span><span class="carte__titre">L'irruption de l'IA au cinéma</span></span>
+        </a>
+        <a class="carte carte--petite" href="https://www.radiofrance.fr/franceinter/podcasts/le-mag-de-la-vie-culturelle/le-mag-de-la-vie-culturelle-du-mardi-25-novembre-2025-8069190" target="_blank" rel="noopener">
+          <span class="carte__art art-5" aria-hidden="true"></span><span class="media__icone">Radio</span>
+          <span class="onde" aria-hidden="true"><i style="height:70%"></i><i style="height:40%"></i><i style="height:60%"></i><i style="height:30%"></i><i style="height:85%"></i><i style="height:50%"></i><i style="height:35%"></i><i style="height:75%"></i><i style="height:45%"></i><i style="height:90%"></i><i style="height:55%"></i><i style="height:30%"></i></span>
+          <span class="carte__txt"><span class="carte__ep">France Inter · 2025</span><span class="carte__titre">Pourquoi l'IA n'a pas tué Hollywood&nbsp;?</span></span>
+        </a>
+        <a class="carte carte--petite" href="https://www.dailymotion.com/video/x8l4lwv" target="_blank" rel="noopener">
+          <span class="carte__art art-1" aria-hidden="true"></span><span class="media__icone">Vidéo</span>
+          <span class="carte__txt"><span class="carte__ep">Numerama · 2023</span><span class="carte__titre">Anna Apter raconte son film fait avec une IA</span></span>
+        </a>
+      </div>
+    </div>
+
+    <div class="suivant"><a class="btn btn--blanc" href="#ep4"><span class="triangle" aria-hidden="true"></span>Épisode suivant</a></div>
+  </div>
+</article>
+
+<!-- ===================================================================== -->
+<!-- ÉPISODE 4 — Les données                                               -->
+<!-- ===================================================================== -->
+<article class="episode" id="ep4" aria-labelledby="ep4-titre">
+  <header class="carton">
+    <div class="amorce" aria-hidden="true"><svg viewBox="0 0 100 100"><circle class="cercle" cx="50" cy="50" r="48"/><circle class="cercle" cx="50" cy="50" r="38"/><circle class="balai" cx="50" cy="50" r="25"/></svg></div>
+    <div class="carton__contenu" data-compte>
+      <p class="carton__ep">Épisode 4</p>
+      <h2 id="ep4-titre">Les données</h2>
+      <p class="carton__accroche">62 cas d'usage, 27 métiers, 300 dirigeants, le grand public et nos camarades étudiants.</p>
+      <p class="carton__meta">6 min de lecture</p>
+    </div>
+    <span class="defiler" aria-hidden="true"></span>
+  </header>
+
+  <div class="corps">
+    <div class="prose" data-compte>
+      <p class="lettrine">Pour vérifier nos hypothèses, nous sommes reparties des données brutes du rapport du CNC. Nous avons relevé une à une les 62 fiches de cas d'usage avec leurs notes, et retranscrit le tableau des métiers. Les graphiques qui suivent sont construits à partir de ces relevés. Chacun indique la page du rapport d'où il vient, et chacun peut s'afficher sous forme de tableau.</p>
+    </div>
+
+    <div class="chiffres large apparait" data-compte>
+      <div class="chiffre"><b data-compteur="62">62</b><span>cas d'usage de l'IA étudiés par le CNC</span><span class="src">CNC p. 46-107</span></div>
+      <div class="chiffre"><b class="rouge" data-compteur="23">23</b><span>sur 44 concernent la post-production et l'animation</span><span class="src">CNC p. 40</span></div>
+      <div class="chiffre"><b data-compteur="0">0</b><span>concerne l'exploitation en salles</span><span class="src">CNC p. 40</span></div>
+      <div class="chiffre"><b data-compteur="5">5</b><span>seulement pourraient automatiser la majorité des tâches d'un métier</span><span class="src">CNC, fiches</span></div>
+    </div>
+
+    <!-- 1. étapes -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 1</span>L'IA se concentre en post-production</h3>
+    </div>
+    <div class="graphe large apparait" data-anime>
+      <div class="graphe__tete" data-compte>
+        <div>
+          <h4>Nombre de cas d'usage de l'IA par étape de la vie d'un film</h4>
+          <p class="graphe__sous">Cinéma et audiovisuel. Les pastilles indiquent l'impact potentiel sur l'étape, noté sur 5 par le CNC.</p>
+        </div>
+      </div>
+      <div id="g-etapes"></div>
+      <p class="graphe__src">Source&nbsp;: CNC × BearingPoint, 2024, p. 40.</p>
+    </div>
+    <div class="prose" data-compte>
+      <p>Le premier constat est géographique. Plus de la moitié des usages identifiés, 23 sur 44, concernent la post-production et l'animation, seule étape notée 5 sur 5 pour son impact potentiel. Le tournage n'en compte que 3, et l'exploitation en salles aucun. L'IA ne transforme donc pas le cinéma de manière uniforme&nbsp;: elle le transforme surtout <em>après</em> le tournage. C'est le «&nbsp;transfert de valeur&nbsp;» dont parle le CNC, et notre troisième hypothèse se vérifie.</p>
+    </div>
+
+    <!-- 2. nuage -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 2</span>Beaucoup d'assistance, peu de remplacement</h3>
+    </div>
+    <div class="graphe large apparait" data-anime>
+      <div class="graphe__tete">
+        <div data-compte>
+          <h4>Les <span id="nuage-total">44</span> cas d'usage, selon la maturité de la technologie et son impact sur les métiers</h4>
+          <p class="graphe__sous">Chaque point est une fiche du rapport. Survolez un point, ou parcourez-les au clavier, pour lire le détail. La rangée encadrée de rouge regroupe les usages qui pourraient automatiser la majorité des tâches d'un métier.</p>
+        </div>
+        <div class="filtres" id="f-nuage" role="group" aria-label="Filière affichée">
+          <button type="button" data-tout="0" aria-pressed="true">Cinéma et audiovisuel</button>
+          <button type="button" data-tout="1" aria-pressed="false">+ jeu vidéo</button>
+        </div>
+      </div>
+      <div id="g-nuage"></div>
+      <p class="graphe__src">Source&nbsp;: les 62 fiches cas d'usage du rapport CNC × BearingPoint, 2024, p. 46-107. Notes de maturité et d'impact sur une échelle de 0 à 3 (p. 44). Relevé&nbsp;: Clémence et Ninon.</p>
+    </div>
+    <div class="prose" data-compte>
+      <p>Ce graphique place chaque cas d'usage selon les deux notes du CNC&nbsp;: la maturité de la technologie et l'impact attendu sur les métiers. La grande majorité des points se trouvent au milieu&nbsp;: l'IA y assiste les professionnels ou automatise une partie de leurs tâches. Seuls cinq cas atteignent le niveau le plus élevé&nbsp;: le bruitage, le doublage en langue étrangère, le sous-titrage, la création de métadonnées et les tests de jeux vidéo. Aucun ne concerne l'écriture, la mise en scène ou le jeu d'acteur. Notre première hypothèse tient&nbsp;: l'IA remplace des tâches bien plus que des métiers.</p>
+    </div>
+
+    <figure class="figure large apparait" style="max-width:900px">
+      <img class="zoomable" src="img/cnc-matrice-maturite.webp" width="2000" height="1126" loading="lazy"
+           alt="Planche originale du rapport du CNC : une soixantaine de cas d'usage répartis en six cases selon la maturité de la technologie (naissante, en amélioration, mature) et le potentiel d'adoption par la filière (restreint ou large).">
+      <figcaption data-compte><b>La synthèse du CNC</b>, qui croise maturité et potentiel d'adoption.<span class="credit">CNC × BearingPoint, 2024, p. 41</span></figcaption>
+    </figure>
+
+    <!-- 3. métiers -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 3</span>Qui est vraiment menacé&nbsp;?</h3>
+    </div>
+    <div class="graphe large apparait" data-anime>
+      <div class="graphe__tete">
+        <div data-compte>
+          <h4>Potentiel de baisse de l'emploi pour 27 familles de métiers du cinéma et de l'audiovisuel</h4>
+          <p class="graphe__sous">Classement établi par le CNC selon le volume et la maturité des outils d'IA qui concernent chaque métier.</p>
+        </div>
+        <div class="legende metiers__legende" aria-label="Légende">
+          <span><i style="background:var(--risque-0)"></i>Pas d'impact</span>
+          <span><i style="background:var(--risque-1)"></i>Faible</span>
+          <span><i style="background:var(--risque-2)"></i>Possible</span>
+          <span><i style="background:var(--risque-3)"></i>Risque fort</span>
+        </div>
+      </div>
+      <div id="g-metiers"></div>
+      <p class="graphe__src">Source&nbsp;: CNC × BearingPoint, 2024, p. 26. Niveaux relevés sur la planche originale.</p>
+    </div>
+    <div class="prose" data-compte>
+      <p>C'est le graphique qui nous a le plus appris. On pourrait croire que les métiers techniques sont les plus menacés et les métiers artistiques les mieux protégés. Ce n'est pas tout à fait vrai. Dans la famille artistique, quatre métiers sont classés en risque fort&nbsp;: doubleurs, storyboarders, traducteurs, bruiteurs. Mais regardez qui se trouve à l'autre bout&nbsp;: réalisateurs, scénaristes, compositeurs, comédiens. La ligne de partage ne passe pas entre la technique et l'art. Elle passe entre ceux qui conçoivent et ceux qui exécutent la vision de quelqu'un d'autre. C'est notre deuxième hypothèse, et les données la confirment assez nettement.</p>
+      <p>Les scénarios prospectifs du rapport vont dans le même sens&nbsp;: le bruiteur pourrait devenir un rédacteur de prompts, le réalisateur pourrait réaliser lui-même son storyboard avec l'IA, et une seule personne pourrait un jour prendre en charge tout le travail du son. Le métier ne disparaît pas forcément, mais il se transforme au point de ne plus ressembler à ce qu'il était.</p>
+    </div>
+
+    <figure class="figure large apparait" style="max-width:900px">
+      <img class="zoomable" src="img/cnc-emploi-metiers.webp" width="2000" height="1110" loading="lazy"
+           alt="Planche originale du rapport du CNC : les familles de métiers placées selon leur dominante (technique, chefferie de projet, artistique) et selon la maturité des outils d'IA, avec un code couleur indiquant le risque pour l'emploi.">
+      <figcaption data-compte><b>La planche originale</b>, d'où sont tirés les niveaux ci-dessus.<span class="credit">CNC × BearingPoint, 2024, p. 26</span></figcaption>
+    </figure>
+
+    <!-- 4. employeurs -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 4</span>Le point de vue des employeurs</h3>
+    </div>
+    <div class="chiffres large apparait" id="g-cvl" data-anime></div>
+    <p class="graphe__src large" style="margin-top:12px">Source&nbsp;: CVL Economics, <em>Future Unscripted</em>, janvier 2024, enquête auprès de 300 dirigeants.</p>
+    <div class="prose" data-compte>
+      <p>Les données américaines sont plus alarmantes. Selon l'enquête de CVL Economics, les dirigeants du divertissement anticipent environ 204&nbsp;000 emplois «&nbsp;perturbés&nbsp;» d'ici 2026, dont plus d'un emploi sur cinq dans le cinéma, la télévision et l'animation<a class="appel" href="#ref-3">3</a>. Ces chiffres doivent être lus avec prudence&nbsp;: ce sont des prévisions d'employeurs, recueillies pour un syndicat, et le mot «&nbsp;perturbé&nbsp;» mélange postes supprimés, remplacés et simplement fusionnés.</p>
+      <p>Le CNC propose une clé de lecture utile&nbsp;: tout dépend de ce que les producteurs décident de faire de l'IA.</p>
+    </div>
+    <div class="graphe large apparait" style="max-width:900px">
+      <div class="graphe__tete" data-compte><h4>Quatre usages de l'IA par les producteurs, quatre effets sur l'emploi</h4></div>
+      <div class="approches" id="g-approches"></div>
+      <p class="graphe__src">Source&nbsp;: CNC × BearingPoint, 2024, p. 28.</p>
+    </div>
+    <div class="prose" data-compte>
+      <p>Une seule de ces quatre stratégies fait baisser le volume de travail&nbsp;: faire le même film pour moins cher. L'IA ne décide donc pas seule du sort des artistes. Ce sont des choix économiques, donc humains.</p>
+      <aside class="encadre">
+        <h4>Prévision ou constat&nbsp;?</h4>
+        <p>Le chiffre le plus spectaculaire de nos lectures, une baisse de 90&nbsp;% des coûts de l'animation d'ici fin 2026, est une estimation de Jeffrey Katzenberg, patron de DreamWorks, formulée fin 2023 et rapportée par le CNC. Ce n'est pas un résultat d'étude. Ce travail nous a appris à distinguer ce qui est mesuré, ce qui est estimé par des experts, et ce qui est annoncé par ceux qui ont intérêt à l'annoncer.</p>
+      </aside>
+    </div>
+
+    <!-- 5. public -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 5</span>Et le public&nbsp;?</h3>
+    </div>
+    <div class="graphe large apparait" style="max-width:900px" data-anime>
+      <div class="graphe__tete" data-compte><div><h4>Part des Français qui ont un avis positif sur l'usage de l'IA dans la création</h4><p class="graphe__sous">Questionnaire grand public de l'Observatoire de l'IA du CNC.</p></div></div>
+      <div id="g-public"></div>
+      <p class="graphe__src">Source&nbsp;: CNC, <em>Perception par le public de l'utilisation de l'IA dans la création</em>, septembre 2024.</p>
+    </div>
+    <div class="prose" data-compte>
+      <p>Côté spectateurs, le CNC a interrogé le grand public en 2024. Seul un tiers des Français a un avis positif sur l'IA dans la création, mais la proportion monte à la moitié chez les moins de 30 ans, et aux trois quarts chez ceux qui connaissent bien l'IA<a class="appel" href="#ref-2">2</a>. Les effets visuels créés avec l'IA sont largement acceptés. Les œuvres entièrement générées et les acteurs virtuels sont, eux, majoritairement rejetés, et la plupart des gens veulent être prévenus quand l'IA a servi.</p>
+    </div>
+
+    <!-- 6. sondage -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 6</span>Notre sondage auprès d'étudiants</h3>
+      <p>Nous avons diffusé un questionnaire auprès d'étudiants qui s'intéressent au cinéma, notamment autour de la Station Cinéma d'Argenton. Nous y avons repris une question du CNC, pour comparer nos réponses à celles des moins de 30 ans.</p>
+    </div>
+    <div class="graphe large apparait" style="max-width:900px" data-anime>
+      <div class="graphe__tete" data-compte><div><h4>Ce qu'en pensent des étudiants cinéphiles</h4><p class="graphe__sous">Questionnaire en ligne · répondants&nbsp;: <span id="sondage-n">en cours</span></p></div></div>
+      <div id="g-sondage"></div>
+      <p class="graphe__src">Source&nbsp;: sondage réalisé par Clémence et Ninon, 2026.</p>
+    </div>
+
+    <!-- frise -->
+    <div class="prose" data-compte>
+      <h3><span class="sc">Plan 7</span>Un siècle de trucages, dix ans d'accélération</h3>
+      <ol class="frise" id="g-frise"></ol>
+    </div>
+
+    <!-- verdict -->
+    <div class="verdict apparait" data-compte>
+      <p class="grand">Remplacer <b>ou</b> transformer&nbsp;? <b>Les deux</b>, mais pas pour les mêmes personnes.</p>
+      <p class="sous">Les données montrent une IA qui transforme la manière de créer bien plus qu'elle ne remplace les créateurs&nbsp;: réalisateurs, scénaristes et comédiens restent les moins exposés. Mais elle remplace déjà une partie du travail d'exécution, le doublage, le bruitage, le sous-titrage, le storyboard, souvent confié à des débutants ou à des indépendants. La vraie question n'est donc pas de savoir si une IA peut faire un film, mais qui pourra encore apprendre le métier. Et, comme le rappelle Anna Apter, ce que l'on choisit de créer avec elle.</p>
+    </div>
+  </div>
+</article>
+
+</main>
+
+<!-- ===================================================================== -->
+<!-- Générique de fin                                                       -->
+<!-- ===================================================================== -->
+<footer class="generique" id="generique">
+  <h2>Générique</h2>
+
+  <p class="role">Une exploration de</p>
+  <p class="noms">Clémence Castillo et Ninon</p>
+
+  <p class="role">Avec la complicité de</p>
+  <p class="noms">La Station Cinéma d'Argenton</p>
+
+  <p class="role">Sources</p>
+  <ol class="biblio">
+    <li id="ref-1">CNC et BearingPoint (2024). <em>Quel impact de l'IA sur les filières du cinéma, de l'audiovisuel et du jeu vidéo&nbsp;?</em> Centre national du cinéma et de l'image animée, avril 2024, 115 p. <a href="https://www.cnc.fr/professionnels/etudes-et-rapports/etudes-prospectives/quel-impact-de-lia-sur-les-filieres-du-cinema-de-laudiovisuel-et-du-jeu-video_2144677" target="_blank" rel="noopener">cnc.fr</a></li>
+    <li id="ref-2">CNC (2024). <em>Observatoire de l'IA. Perception par le public de l'utilisation de l'IA dans la création</em>, 11 septembre 2024. <a href="https://www.cnc.fr/professionnels/etudes-et-rapports/etudes-prospectives/observatoire-de-lia--perception-par-le-public-de-lutilisation-de-lia-dans-la-creation_2256220" target="_blank" rel="noopener">cnc.fr</a></li>
+    <li id="ref-3">CVL Economics (2024). <em>Future Unscripted: The Impact of Generative Artificial Intelligence on Entertainment Industry Jobs</em>. Étude commandée par The Animation Guild, janvier 2024. <a href="https://animationguild.org/wp-content/uploads/2024/01/Future-Unscripted-The-Impact-of-Generative-Artificial-Intelligence-on-Entertainment-Industry-Jobs-pages-1.pdf" target="_blank" rel="noopener">animationguild.org</a></li>
+    <li id="ref-4">Eloundou, T., Manning, S., Mishkin, P. et Rock, D. (2023). <em>GPTs are GPTs: An Early Look at the Labor Market Impact Potential of Large Language Models</em>. arXiv:2303.10130. <a href="https://arxiv.org/abs/2303.10130" target="_blank" rel="noopener">arxiv.org</a></li>
+    <li id="ref-5">Zhang, R., Yu, B., Min, J. et al. (2025). <em>Generative AI for Film Creation: A Survey of Recent Advances</em>. Atelier CVEU, CVPR 2025. arXiv:2504.08296. <a href="https://arxiv.org/abs/2504.08296" target="_blank" rel="noopener">arxiv.org</a></li>
+    <li id="ref-6">Benjamin, W. (1935). «&nbsp;L'œuvre d'art à l'époque de sa reproductibilité technique&nbsp;», dans <em>Œuvres III</em>, Paris, Gallimard, coll. Folio essais, 2000.</li>
+    <li id="ref-7">Becker, H. S. (1988). <em>Les Mondes de l'art</em>, Paris, Flammarion. Édition originale&nbsp;: <em>Art Worlds</em>, University of California Press, 1982.</li>
+    <li id="ref-8">ÉSEC (2025). «&nbsp;Intelligence artificielle, cinéma et audiovisuel&nbsp;: quels impacts en 2025&nbsp;?&nbsp;» <a href="https://www.esec.fr/ecole-cinema/actualites/intelligence-artificielle-cinema-et-audiovisuel-quels-impacts-en-2025" target="_blank" rel="noopener">esec.fr</a></li>
+    <li id="ref-9">Writers Guild of America. <em>Artificial Intelligence</em> : les dispositions de l'accord collectif (MBA) de 2023 sur l'IA. <a href="https://www.wga.org/contracts/know-your-rights/artificial-intelligence" target="_blank" rel="noopener">wga.org</a></li>
+    <li id="ref-10">SAG-AFTRA (2024). <em>A.I. Bargaining and Policy Work Timeline</em>. <a href="https://www.sagaftra.org/sag-aftra-ai-bargaining-and-policy-work-timeline" target="_blank" rel="noopener">sagaftra.org</a></li>
+    <li id="ref-11">Règlement (UE) 2024/1689 du Parlement européen et du Conseil du 13 juin 2024 établissant des règles harmonisées concernant l'intelligence artificielle (AI Act). <a href="https://eur-lex.europa.eu/eli/reg/2024/1689/oj" target="_blank" rel="noopener">eur-lex.europa.eu</a></li>
+    <li id="ref-12">Apter, A. (2023). <em>/IMAGINE</em>, court-métrage, 2 min 12. Diffusé par Short of the Week. <a href="https://www.youtube.com/watch?v=An2eWzRvTFE" target="_blank" rel="noopener">youtube.com</a></li>
+    <li id="ref-13">Numerama (2023). «&nbsp;J'ai créé ce film avec Midjourney&nbsp;: Anna Apter raconte comment réaliser un film seule avec une IA&nbsp;», vidéo. <a href="https://www.dailymotion.com/video/x8l4lwv" target="_blank" rel="noopener">dailymotion.com</a></li>
+    <li id="ref-14">Moghaddam, F. (2023). «&nbsp;Au cinéma, une actrice en devenir&nbsp;», série <em>L'art au défi de l'intelligence artificielle</em>, épisode 3/7, France Culture, 6 juillet 2023. <a href="https://www.radiofrance.fr/franceculture/podcasts/le-reportage-de-la-redaction/au-cinema-une-actrice-en-devenir-8562014" target="_blank" rel="noopener">radiofrance.fr</a></li>
+    <li id="ref-15">Saltiel, F. (2024). «&nbsp;Comment l'IA fait-elle son cinéma&nbsp;?&nbsp;», <em>Le Meilleur des mondes</em>, France Culture, 7 juin 2024. <a href="https://www.radiofrance.fr/franceculture/podcasts/le-meilleur-des-mondes/comment-l-ia-fait-son-cinema-8526365" target="_blank" rel="noopener">radiofrance.fr</a></li>
+    <li id="ref-16">France Inter (2023). «&nbsp;L'irruption de l'intelligence artificielle au cinéma&nbsp;», <em>Zoom Zoom Zen</em>, 31 août 2023. <a href="https://www.radiofrance.fr/franceinter/podcasts/zoom-zoom-zen/zoom-zoom-zen-du-jeudi-31-aout-2023-4101110" target="_blank" rel="noopener">radiofrance.fr</a></li>
+    <li id="ref-17">France Inter (2025). «&nbsp;Pourquoi l'IA n'a pas tué Hollywood&nbsp;?&nbsp;», <em>Le Mag de la vie culturelle</em>, 25 novembre 2025. <a href="https://www.radiofrance.fr/franceinter/podcasts/le-mag-de-la-vie-culturelle/le-mag-de-la-vie-culturelle-du-mardi-25-novembre-2025-8069190" target="_blank" rel="noopener">radiofrance.fr</a></li>
+  </ol>
+
+  <p class="role">Images</p>
+  <p class="noms" style="font-size:15px;color:var(--gris)">Planches&nbsp;: CNC × BearingPoint, 2024 · <em>The Mandalorian</em>&nbsp;: Lucasfilm / Disney+, via ÉSEC · Visuels des épisodes créés en CSS pour ce site</p>
+
+  <p class="role">Musique originale</p>
+  <p class="noms" style="font-size:15px;color:var(--gris)">Aucune. Le silence, c'est aussi du cinéma.</p>
+
+  <p class="mots">Composante écrite&nbsp;: <span id="nb-mots">—</span> mots, pour un plafond de 4&nbsp;000 · usage pédagogique</p>
+  <p class="fin">Fin</p>
+</footer>
+
+<script src="js/data.js?v=9"></script>
+<script src="js/site.js?v=9"></script>
+</body>
+</html>
