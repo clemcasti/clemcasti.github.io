@@ -1,4 +1,4 @@
-# Remplacer / Transformer
+# Le paradoxe des nouvelles technologies sur l'industrie du cinéma
 
 Exploration numérique de **Clémence Castillo et Ninon** : l'intelligence artificielle va-t-elle
 remplacer les artistes du cinéma, ou transformer leur manière de créer ?

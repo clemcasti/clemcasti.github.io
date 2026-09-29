@@ -80,6 +80,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   animation: titre 2.4s var(--ease) 1.05s forwards;
 }
 .intro__titre b { color: var(--rouge); font-weight: 400; }
+.intro__sous { display: block; margin-top: .3em; padding: 0 16px; text-wrap: balance; font-size: clamp(22px, 3.6vw, 54px); line-height: 1.05; color: var(--blanc); }
 .intro__titre small {
   display: block; margin-top: .9em; font: 500 clamp(11px, 1.2vw, 14px)/1.4 var(--f-mono);
   letter-spacing: .35em; text-transform: uppercase; color: var(--gris);
@@ -115,7 +116,7 @@ button { font: inherit; color: inherit; cursor: pointer; }
   letter-spacing: .02em; white-space: nowrap;
 }
 .logo:hover { color: var(--rouge-vif); }
-.logo span { color: var(--blanc); }
+.logo span { color: var(--blanc); margin-right: .1em; }
 .barre nav { display: flex; gap: clamp(10px, 2vw, 26px); overflow-x: auto; scrollbar-width: none; }
 .barre nav::-webkit-scrollbar { display: none; }
 .barre nav a {
@@ -220,6 +221,8 @@ button { font: inherit; color: inherit; cursor: pointer; }
   color: var(--blanc); letter-spacing: .01em;
 }
 .billboard h1 b { color: var(--rouge); font-weight: 400; }
+.h1__grand { display: block; }
+.h1__sous { display: block; max-width: 20ch; text-wrap: balance; margin-top: 12px; font-size: clamp(26px, 3.4vw, 46px); line-height: 1; letter-spacing: .02em; color: var(--blanc); }
 .meta-ligne { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 14px; color: var(--gris); margin-bottom: 16px; }
 .meta-ligne .vert { color: #46d369; font-weight: 700; }
 .meta-ligne .cadre { border: 1px solid var(--gris-2); padding: 1px 6px; font-size: 12px; border-radius: 2px; }
