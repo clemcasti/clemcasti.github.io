@@ -17,7 +17,7 @@ window.DATA = {
       "Assistance à la budgétisation", "<em>Moodboard</em> projet" ] },
     { nom: "Préproduction et tournage", icone: "camera", cas: [
       "Création de plannings de tournage", "<em>Storyboarding</em>",
-      "Caméras&nbsp;: <em>tracking</em> automatique", "Caméras&nbsp;: pré-paramétrage" ] },
+      "<em>Tracking</em> automatique des caméras", "Pré-paramétrage des caméras" ] },
     { nom: "Postproduction, effets visuels et animation", icone: "ecran", cas: [
       "Montage vidéo et son assisté par l'IA", "Création sonore et musicale", "Création d'effets spéciaux",
       "Création d'œuvres d'animation", "Post-synchro, doublage et <em>lip-sync</em>", "Sous-titrage" ] },
@@ -42,9 +42,10 @@ window.DATA = {
     { nom: "Gestion du catalogue",        cas: 3,  impact: 2 }
   ],
 
-  /* --- CNC p. 46-107 : les 62 fiches cas d'usage --------------------------
+  /* --- CNC p. 46-101 : les 44 fiches qui concernent le cinéma et l'audiovisuel
+   * (le rapport en compte 62 au total, les autres portent sur le jeu vidéo).
    * m = maturité technologique (0 à 3), i = impact pressenti sur les métiers (0 à 3)
-   * f = filière : "ca" cinéma & audiovisuel, "jv" jeu vidéo, "both" les deux
+   * f = "ca" propre au cinéma et à l'audiovisuel, "both" commun avec d'autres filières
    * p = page de la fiche                                                     */
   fiches: [
     { n: "Aide à l'écriture de scénarios", m: 2, i: 1, f: "ca", p: 46, metiers: "Auteurs-scénaristes" },
@@ -53,12 +54,6 @@ window.DATA = {
     { n: "Storyboarding", m: 2, i: 2, f: "both", p: 49, metiers: "Artistes 2D, réalisateurs" },
     { n: "Aide à la budgétisation", m: 1, i: 2, f: "both", p: 50, metiers: "Producteurs" },
     { n: "Plannings de tournage", m: 0, i: 2, f: "ca", p: 51, metiers: "Assistants réalisation, régie" },
-    { n: "Concepts de jeux vidéo", m: 2, i: 1, f: "jv", p: 52, metiers: "Game designers" },
-    { n: "Cahiers des charges", m: 2, i: 2, f: "jv", p: 53, metiers: "Game designers" },
-    { n: "Création de niveaux de jeu", m: 1, i: 2, f: "jv", p: 54, metiers: "Level designers" },
-    { n: "Nouvelles formes de gameplay", m: 1, i: 0, f: "jv", p: 55, metiers: "Aucun métier touché" },
-    { n: "Dialogues de jeu vidéo", m: 1, i: 2, f: "jv", p: 56, metiers: "Narrative designers" },
-    { n: "Trames narratives personnalisées", m: 0, i: 0, f: "jv", p: 57, metiers: "Aucun métier touché" },
     { n: "Caméras intelligentes", m: 3, i: 2, f: "ca", p: 58, metiers: "Cadreurs, machinistes" },
     { n: "Indexation des rushes", m: 3, i: 2, f: "ca", p: 59, metiers: "Monteurs image et son" },
     { n: "Montage vidéo assisté", m: 3, i: 2, f: "ca", p: 60, metiers: "Monteurs image" },
@@ -83,13 +78,7 @@ window.DATA = {
     { n: "Optimisation du rendu", m: 3, i: 0, f: "both", p: 79, metiers: "Aucun métier touché" },
     { n: "Modélisation 3D", m: 1, i: 2, f: "both", p: 80, metiers: "Artistes 3D" },
     { n: "Animation assistée", m: 1, i: 2, f: "both", p: 81, metiers: "Animateurs 3D" },
-    { n: "Création de textures", m: 1, i: 2, f: "jv", p: 82, metiers: "Artistes texture" },
     { n: "Rigging et skinning", m: 2, i: 2, f: "both", p: 83, metiers: "Riggers" },
-    { n: "Personnages non joueurs « intelligents »", m: 1, i: 0, f: "jv", p: 84, metiers: "Aucun métier touché" },
-    { n: "Équilibrage de la difficulté", m: 3, i: 0, f: "jv", p: 85, metiers: "Game designers" },
-    { n: "Matchmaking", m: 3, i: 0, f: "jv", p: 86, metiers: "Programmeurs" },
-    { n: "Programmation assistée", m: 2, i: 1, f: "jv", p: 87, metiers: "Programmeurs" },
-    { n: "Tests et débogage", m: 2, i: 3, f: "jv", p: 88, metiers: "Testeurs" },
     { n: "Bandes-annonces", m: 1, i: 1, f: "ca", p: 89, metiers: "Monteurs" },
     { n: "Contenus promotionnels", m: 2, i: 2, f: "both", p: 90, metiers: "Marketing, distributeurs" },
     { n: "Nouvelles formes de marketing", m: 0, i: 0, f: "both", p: 91, metiers: "Aucun métier touché" },
@@ -102,13 +91,7 @@ window.DATA = {
     { n: "Conformité réglementaire", m: 0, i: 2, f: "both", p: 98, metiers: "Non précisé" },
     { n: "Placement de produit virtuel", m: 3, i: 0, f: "both", p: 99, metiers: "Aucun métier touché" },
     { n: "Restauration de films", m: 2, i: 2, f: "ca", p: 100, metiers: "Restaurateurs" },
-    { n: "Clipping d'extraits", m: 0, i: 2, f: "ca", p: 101, metiers: "Aucun métier touché" },
-    { n: "Analyse du comportement des joueurs", m: 3, i: 0, f: "jv", p: 102, metiers: "Programmeurs" },
-    { n: "Contenus créés par les joueurs", m: 1, i: 0, f: "jv", p: 103, metiers: "Aucun métier touché" },
-    { n: "Avatars personnalisés", m: 1, i: 0, f: "jv", p: 104, metiers: "Aucun métier touché" },
-    { n: "Chatbot service client", m: 3, i: 0, f: "jv", p: 105, metiers: "Service client" },
-    { n: "Détection de triche", m: 1, i: 2, f: "jv", p: 106, metiers: "Testeurs" },
-    { n: "Détection de comportements toxiques", m: 2, i: 2, f: "jv", p: 107, metiers: "Développeurs, testeurs" }
+    { n: "Clipping d'extraits", m: 0, i: 2, f: "ca", p: 101, metiers: "Aucun métier touché" }
   ],
   echelles: {
     maturite: ["Naissante", "En développement", "Utilisable", "Éprouvée"],
@@ -171,9 +154,9 @@ window.DATA = {
   /* --- Frise chronologique ------------------------------------------------ */
   frise: [
     { an: "1915", txt: "Les frères Fleischer inventent la rotoscopie, à la main, image par image.", src: "CNC p. 71" },
-    { an: "2018", txt: "Le visage de Thanos (Avengers: Infinity War) est animé avec l'outil Masquerade de Digital Domain.", src: "CNC p. 74" },
+    { an: "2018", txt: "Dans le film Avengers Infinity War, le visage de Thanos est animé avec l'outil Masquerade de Digital Domain.", src: "CNC p. 74" },
     { an: "2020", txt: "Premier deepfake de Luke Skywalker dans The Mandalorian, saison 2.", src: "ÉSEC" },
-    { an: "2021", txt: "OpenAI lance DALL·E. Thierry Ardisson fait « revivre » Dalida dans Hôtel du Temps.", src: "CNC p. 2, 74" },
+    { an: "2021", txt: "OpenAI lance DALL-E. Thierry Ardisson fait « revivre » Dalida dans Hôtel du Temps.", src: "CNC p. 2, 74" },
     { an: "2022", txt: "Sortie de ChatGPT. Respeecher recrée la voix de James Earl Jones pour Obi-Wan Kenobi.", src: "CNC p. 2, 65" },
     { an: "2023", txt: "/Imagine d'Anna Apter primé au Nikon Film Festival. Grèves historiques des scénaristes (148 jours) puis des acteurs à Hollywood.", src: "CNC p. 9, 18" },
     { an: "2024", txt: "Le CNC publie sa cartographie. L'Union européenne adopte l'AI Act. OpenAI dévoile Sora.", src: "CNC p. 18, 77" },

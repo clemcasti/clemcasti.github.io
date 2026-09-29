@@ -199,18 +199,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
    2. CATALOGUE
    ========================================================================== */
 .billboard {
-  position: relative; min-height: 88vh; display: flex; align-items: flex-end;
+  position: relative; min-height: 88vh; display: flex; align-items: flex-end; justify-content: center;
   padding: 120px var(--gouttiere) 60px; overflow: hidden; isolation: isolate;
 }
 .billboard__fond {
   position: absolute; inset: 0; z-index: -1;
   background:
-    linear-gradient(90deg, var(--fond) 0%, rgba(11,11,12,.85) 38%, rgba(11,11,12,.2) 75%),
-    linear-gradient(0deg, var(--fond) 0%, transparent 40%),
-    url('../img/esec-luke-2.webp') 80% 30% / cover no-repeat;
+    radial-gradient(ellipse 70% 80% at 50% 55%, rgba(11,11,12,.55), rgba(11,11,12,.88) 75%),
+    linear-gradient(0deg, var(--fond) 0%, transparent 35%),
+    url('../img/esec-luke-2.webp') 50% 30% / cover no-repeat;
   filter: saturate(.75);
 }
-.billboard__contenu { max-width: 720px; }
+.billboard__contenu { max-width: 760px; margin: 0 auto; text-align: center; }
 .badge {
   display: inline-flex; align-items: center; gap: 10px;
   font: 600 12px/1 var(--f-mono); letter-spacing: .25em; text-transform: uppercase; color: var(--gris);
@@ -222,12 +222,12 @@ button { font: inherit; color: inherit; cursor: pointer; }
 }
 .billboard h1 b { color: var(--rouge); font-weight: 400; }
 .h1__grand { display: block; }
-.h1__sous { display: block; max-width: 20ch; text-wrap: balance; margin-top: 12px; font-size: clamp(26px, 3.4vw, 46px); line-height: 1; letter-spacing: .02em; color: var(--blanc); }
-.meta-ligne { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 14px; color: var(--gris); margin-bottom: 16px; }
+.h1__sous { display: block; max-width: 20ch; margin-left: auto; margin-right: auto; text-wrap: balance; margin-top: 12px; font-size: clamp(26px, 3.4vw, 46px); line-height: 1; letter-spacing: .02em; color: var(--blanc); }
+.meta-ligne { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 8px 14px; font-size: 14px; color: var(--gris); margin-bottom: 16px; }
 .meta-ligne .vert { color: #46d369; font-weight: 700; }
 .meta-ligne .cadre { border: 1px solid var(--gris-2); padding: 1px 6px; font-size: 12px; border-radius: 2px; }
-.synopsis { font-size: clamp(16px, 1.6vw, 20px); line-height: 1.5; color: var(--blanc); margin: 0 0 26px; max-width: 58ch; }
-.boutons { display: flex; flex-wrap: wrap; gap: 12px; }
+.synopsis { font-size: clamp(16px, 1.6vw, 20px); line-height: 1.5; color: var(--blanc); margin: 0 auto 26px; max-width: 58ch; }
+.boutons { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 .btn {
   display: inline-flex; align-items: center; gap: 10px; padding: 12px 26px; border-radius: 4px;
   font: 700 16px/1 var(--f-texte); text-decoration: none; border: 0;
@@ -444,7 +444,6 @@ figcaption b { color: var(--blanc); font-weight: 600; }
   .etape__nom { min-height: 0; margin: 6px 0 10px; }
   .etape__cas { display: flex; flex-wrap: wrap; }
   .etape__cas li { padding: 6px 10px; }
-  .chaine figcaption { text-align: left; }
 }
 
 /* fiches de lecture (revue de littérature) */
@@ -677,6 +676,49 @@ details.donnees td.nb { font-family: var(--f-mono); text-align: right; }
 .visionneuse button { position: absolute; top: 16px; right: 16px; border: 1px solid rgba(255,255,255,.3); background: rgba(255,255,255,.08); border-radius: 4px; padding: 8px 14px; font: 500 12px/1 var(--f-mono); letter-spacing: .15em; text-transform: uppercase; }
 
 /* ==========================================================================
+   MISE EN PAGE CENTRÉE (demande de Clémence : « tout centré proprement »)
+   ========================================================================== */
+.prose { text-align: center; }
+.prose p { margin-left: auto; margin-right: auto; }
+.rangee h2 { text-align: center; }
+figcaption, .graphe__src, .chaine figcaption { text-align: center; }
+.ecran__legende { flex-direction: column; align-items: center; text-align: center; }
+.graphe__tete { flex-direction: column; align-items: center; text-align: center; }
+.graphe h4, .graphe__sous { margin-left: auto; margin-right: auto; }
+.legende { justify-content: center; }
+.chiffre, .tension, .encadre, .approche { text-align: center; }
+.fiche { align-items: center; text-align: center; }
+.fiche dl { justify-items: center; }
+.meme > div { align-items: center; text-align: center; }
+.hypotheses li { padding: 0 0 22px; text-align: center; }
+.hypotheses li::before { position: static; display: table; margin: 0 auto 10px; }
+.biblio { text-align: center; }
+.biblio li { padding: 0 0 16px; text-align: center; }
+.biblio li::before { position: static; display: block; margin: 0 auto 2px; }
+.question-label { margin: 0 0 14px; text-align: center; font: 600 12px/1.4 var(--f-mono); letter-spacing: .3em; text-transform: uppercase; color: var(--rouge-vif); }
+.problematique { margin-top: 0; }
+
+/* frise centrée : pastille, année, texte, puis un trait vers l'étape suivante */
+.frise { padding: 0; max-width: 620px; margin: 0 auto; }
+.frise::before { display: none; }
+.frise li { padding: 0; text-align: center; }
+.frise li::before { position: static; display: block; margin: 0 auto 10px; }
+.frise li:not(:last-child)::after { content: ""; display: block; width: 2px; height: 26px; margin: 14px auto; background: linear-gradient(var(--rouge), var(--trait)); }
+.frise b { display: block; margin: 0 0 4px; }
+
+/* corpus : les études et les œuvres */
+.oeuvres { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.oeuvre { padding: 22px; border-radius: 8px; background: var(--surface); border: 1px solid var(--trait); text-align: center; transition: border-color .25s, transform .3s var(--ease); }
+.oeuvre:hover { border-color: #45454d; transform: translateY(-3px); }
+.oeuvre__annee { font: 600 11px/1 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--rouge-vif); }
+.oeuvre h4 { margin: 10px 0 8px; font: 400 clamp(24px, 2.4vw, 30px)/1 var(--f-titre); letter-spacing: .02em; color: var(--blanc); }
+.oeuvre p { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--texte); }
+.art-6 { background:
+  repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 28%, transparent 28% 33%),
+  repeating-linear-gradient(0deg, rgba(255,255,255,.05) 0 44%, transparent 44% 50%),
+  radial-gradient(circle at 70% 30%, #4a0a10, #0d0d10 70%); }
+
+/* ==========================================================================
    Révélations au défilement
    ========================================================================== */
 .apparait { opacity: 0; transform: translateY(26px); transition: opacity .9s var(--ease), transform .9s var(--ease); }
@@ -693,7 +735,7 @@ details.donnees td.nb { font-family: var(--f-mono); text-align: right; }
   .barre nav a .num { font-size: 13px; margin: 0; }
   .billboard { min-height: 82vh; padding-bottom: 40px; }
   .billboard__fond { background:
-    linear-gradient(0deg, var(--fond) 8%, rgba(11,11,12,.75) 55%, rgba(11,11,12,.35) 100%),
+    linear-gradient(0deg, var(--fond) 8%, rgba(11,11,12,.8) 55%, rgba(11,11,12,.6) 100%),
     url('../img/esec-luke-2.webp') 38% center / cover no-repeat; }
   .barres__ligne { grid-template-columns: 1fr; gap: 4px; }
   .barres__nom { text-align: left; }

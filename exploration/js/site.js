@@ -213,7 +213,7 @@
       var pastilles = '';
       for (var k = 0; k < 5; k++) pastilles += '<i class="' + (k < e.impact ? 'on' : '') + '"></i>';
       var ligne = el('div', { class: 'barres__ligne' + (e.cas === 0 ? ' zero' : ''), role: 'listitem', tabindex: '0',
-        'aria-label': e.nom + ' : ' + e.cas + ' cas d\'usage, impact ' + e.impact + ' sur 5' },
+        'aria-label': e.nom + ', ' + e.cas + ' cas d\'usage, impact ' + e.impact + ' sur 5' },
         '<span class="barres__nom">' + e.nom + '</span>' +
         '<span class="barres__piste"><span class="barres__barre" style="width:' + (e.cas / max * 78) + '%;transition-delay:' + (i * 70) + 'ms"></span>' +
         '<span class="barres__val">' + (e.cas === 0 ? 'aucun' : e.cas) +
@@ -226,7 +226,7 @@
   }
 
   /* ------------------------------------------------------------------ */
-  /* Graphique 2 : nuage maturité × impact des 62 fiches                  */
+  /* Graphique 2 : nuage maturité × impact des 44 fiches                  */
   /* ------------------------------------------------------------------ */
   function grapheNuage() {
     var box = $('#g-nuage');
@@ -237,7 +237,7 @@
     var svg = document.createElementNS(ns, 'svg');
     svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     svg.setAttribute('role', 'img');
-    svg.setAttribute('aria-label', 'Nuage de points : maturité technologique en abscisse, impact sur les métiers en ordonnée, pour les 62 cas d\'usage du rapport du CNC.');
+    svg.setAttribute('aria-label', 'Nuage de points. Maturité technologique en abscisse, impact sur les métiers en ordonnée, pour les ' + D.fiches.length + ' cas d\'usage du cinéma et de l\'audiovisuel relevés dans le rapport du CNC.');
     function s(tag, a, txt) { var e = document.createElementNS(ns, tag); for (var k in a) e.setAttribute(k, a[k]); if (txt != null) e.textContent = txt; svg.appendChild(e); return e; }
 
     for (var m = 0; m < 4; m++) for (var i = 0; i < 4; i++) {
@@ -258,7 +258,7 @@
     D.fiches.forEach(function (f) { var k = f.m + '-' + f.i; (cases[k] = cases[k] || []).push(f); });
     var points = [];
     Object.keys(cases).forEach(function (k) {
-      var liste = cases[k].slice().sort(function (a, b) { return (a.f === 'jv') - (b.f === 'jv'); });
+      var liste = cases[k];
       var m = +k[0], i = +k[2];
       var cols = 5, pas = 26;
       var x0 = gauche + m * cw + cw / 2 - (Math.min(cols, liste.length) - 1) * pas / 2;
@@ -266,13 +266,12 @@
       var y0 = haut + (3 - i) * ch + ch / 2 - (rangs - 1) * pas / 2;
       liste.forEach(function (f, j) {
         var c = s('circle', { cx: x0 + (j % cols) * pas, cy: y0 + Math.floor(j / cols) * pas, r: 7,
-          class: 'point' + (f.f === 'jv' ? ' jv' : ''), tabindex: '0',
+          class: 'point', tabindex: '0',
           'aria-label': f.n + ', maturité ' + D.echelles.maturite[f.m] + ', impact ' + D.echelles.impact[f.i] + ', page ' + f.p });
         c._f = f;
         points.push(c);
       });
-      var compte = s('text', { x: gauche + m * cw + cw - 12, y: haut + (3 - i) * ch + 26, 'text-anchor': 'end', class: 'compte' }, '');
-      compte._cle = k;
+      s('text', { x: gauche + m * cw + cw - 12, y: haut + (3 - i) * ch + 26, 'text-anchor': 'end', class: 'compte' }, String(liste.length));
     });
 
     var bulle = el('div', { class: 'bulle', 'aria-hidden': 'true' });
@@ -281,8 +280,7 @@
 
     function montrer(c) {
       var f = c._f, r = zone.getBoundingClientRect(), p = c.getBoundingClientRect();
-      bulle.innerHTML = '<b>' + f.n + '</b><span>' + f.metiers + '</span><span>' +
-        ({ ca: 'Cinéma et audiovisuel', jv: 'Jeu vidéo', both: 'Cinéma, audiovisuel et jeu vidéo' })[f.f] + ' · CNC p. ' + f.p + '</span>';
+      bulle.innerHTML = '<b>' + f.n + '</b><span>' + f.metiers + '</span><span>CNC, fiche p. ' + f.p + '</span>';
       // le conteneur peut défiler horizontalement sur petit écran
       var x = p.left - r.left + zone.scrollLeft + p.width / 2, y = p.top - r.top;
       var larg = Math.min(260, r.width);
@@ -298,31 +296,10 @@
       c.addEventListener('blur', cacher);
     });
 
-    // filtre de filière
-    var filtres = $('#f-nuage');
-    function appliquer(tout) {
-      points.forEach(function (c) {
-        var cache = !tout && c._f.f === 'jv';
-        c.classList.toggle('masque', cache);
-        if (cache) c.setAttribute('tabindex', '-1'); else c.setAttribute('tabindex', '0');
-      });
-      $$('text.compte', svg).forEach(function (t) {
-        var n = (cases[t._cle] || []).filter(function (f) { return tout || f.f !== 'jv'; }).length;
-        t.textContent = n ? n : '';
-      });
-      $$('button', filtres).forEach(function (b) { b.setAttribute('aria-pressed', String((b.dataset.tout === '1') === tout)); });
-      var leg = $('#legende-jv');
-      if (leg) leg.hidden = !tout;
-      var total = D.fiches.filter(function (f) { return tout || f.f !== 'jv'; }).length;
-      $('#nuage-total').textContent = total;
-    }
-    $$('button', filtres).forEach(function (b) { b.addEventListener('click', function () { appliquer(b.dataset.tout === '1'); }); });
-
     box.appendChild(el('p', { class: 'nuage__glisser', 'aria-hidden': 'true' }, '← faites glisser le graphique →'));
     box.appendChild(zone);
-    appliquer(false);
-    box.appendChild(tableau('les 62 fiches', ['Cas d\'usage', 'Filière', 'Maturité (0-3)', 'Impact (0-3)', 'Page'],
-      D.fiches.map(function (f) { return [f.n, ({ ca: 'Cinéma, AV', jv: 'Jeu vidéo', both: 'Les deux' })[f.f], f.m, f.i, f.p]; }), [2, 3, 4]));
+    box.appendChild(tableau('les ' + D.fiches.length + ' fiches', ['Cas d\'usage', 'Maturité (0-3)', 'Impact (0-3)', 'Page'],
+      D.fiches.map(function (f) { return [f.n, f.m, f.i, f.p]; }), [1, 2, 3]));
   }
 
   /* ------------------------------------------------------------------ */

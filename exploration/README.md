@@ -12,7 +12,7 @@ construction. GitHub Pages le publie tel quel depuis ce dossier.
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Toute la page : générique, court-métrage, catalogue, 4 épisodes, générique de fin |
+| `index.html` | Toute la page : générique, court-métrage, catalogue, 5 épisodes (Introduction, Question de recherche, Analyse, Corpus, Lectures & sources), générique de fin |
 | `css/site.css` | Styles. Les couleurs et polices sont définies une seule fois, en haut (`:root`) |
 | `js/data.js` | **Toutes les données chiffrées.** Pour modifier un graphique, c'est ici |
 | `js/site.js` | Comportements : générique, navigation, animations, dessin des graphiques |
@@ -32,6 +32,10 @@ puis ouvrir <http://localhost:8000/exploration/> (commande lancée à la racine 
 Ajouter `?intro=1` à l'adresse pour revoir le générique d'ouverture, qui ne se joue qu'une
 fois par session.
 
+**Règles d'écriture demandées par Clémence** : pas de deux-points ni de points-virgules
+dans le texte (sauf dans les titres officiels cités en bibliographie), pas d'émojis, pas de
+durée de lecture, texte centré, ton d'étudiante, au plus près de ses propres formulations.
+
 **Vérifier le plafond de 4 000 mots**
 
 ```bash
@@ -49,11 +53,11 @@ Une fois les réponses reçues :
 
 1. Reporter les pourcentages dans `js/data.js` (voir la fin de `QUESTIONNAIRE.md`) et passer
    `placeholder` à `false`.
-2. Coller le bloc ci-dessous dans `index.html`, épisode 4, juste avant le commentaire
-   `<!-- frise -->`, puis renuméroter la frise en « Plan 7 ».
-3. Ajouter un court paragraphe d'analyse, et revoir trois phrases qui annoncent le sondage
-   comme une piste future : la méthode (épisode 2), « Une piste pour la suite » (épisode 3) et
-   l'accroche du carton de l'épisode 4.
+2. Coller le bloc ci-dessous dans `index.html`, épisode 3 (Analyse), juste avant le
+   commentaire `<!-- conclusion -->`, et le numéroter « Plan 6 ».
+3. Ajouter un court paragraphe d'analyse, et revoir les passages qui présentent le sondage
+   comme une piste future : la méthode (épisode 2) et « Une piste pour la suite » (épisode 5).
+   Ajouter le sondage aux études présentées dans le Corpus (épisode 4).
 4. Relancer le compteur de mots.
 
 ```html
