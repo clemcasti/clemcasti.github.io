@@ -8,6 +8,18 @@
   var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var nf = new Intl.NumberFormat('fr-FR');
 
+  // Défilement voulu (lien interne, bouton, lien profond) : les arrêts de fin d'épisode
+  // le laissent passer. La fenêtre est prolongée tant que la page défile encore.
+  // Un plafond empêche de prolonger indéfiniment en continuant soi-même à défiler.
+  var libre = 0, plafond = 0;
+  function liberer(ms) {
+    var t = Date.now() + (ms || 1200);
+    libre = Math.max(libre, t);
+    plafond = Math.max(plafond, t + 2500);
+  }
+  function prolonger() { libre = Math.min(plafond, Math.max(libre, Date.now() + 300)); }
+  function estLibre() { return Date.now() < libre; }
+
   function el(tag, attrs, html) {
     var e = document.createElement(tag);
     for (var k in attrs || {}) e.setAttribute(k, attrs[k]);
@@ -404,6 +416,148 @@
   }
 
   /* ------------------------------------------------------------------ */
+  /* Arrêt de fin d'épisode                                               */
+  /* On bute sur l'écran « À suivre » : le bouton fait passer, sinon il     */
+  /* faut insister (molette, doigt ou clavier) jusqu'à remplir la jauge.   */
+  /* ------------------------------------------------------------------ */
+  function arrets() {
+    var SEUIL_MOLETTE = 800;  // défilement cumulé (px) d'un geste franc
+    var SEUIL_DOIGT = 220;    // longueur de glissé (px)
+    var PAUSE = 160;          // ms sans molette = nouveau geste (l'élan précédent ne compte pas)
+    var FUITE = 1.1;          // la jauge se vide en continu (par seconde) : seul un geste franc la remplit
+
+    var liste = $$('.fin-ep').map(function (f) {
+      return { fin: f, suivant: $(f.getAttribute('data-suivant')), passe: false, p: 0, dernier: 0, pret: false, minuteur: null };
+    }).filter(function (a) { return a.suivant; });
+    if (!liste.length) return;
+
+    // position de défilement où le bas de l'écran touche le début de l'épisode suivant
+    function limite(a) { return Math.round(a.suivant.getBoundingClientRect().top + window.scrollY - window.innerHeight); }
+    // premier arrêt non franchi, situé au niveau ou en dessous de la position courante
+    function devant(y) {
+      for (var i = 0; i < liste.length; i++) {
+        if (liste[i].passe) continue;
+        var l = limite(liste[i]);
+        if (l >= y - 2) return { a: liste[i], l: l };
+      }
+      return null;
+    }
+    function afficher(a) { a.fin.style.setProperty('--p', Math.max(0, Math.min(1, a.p)).toFixed(3)); }
+    // fuite continue de la jauge, tant qu'elle n'est pas vide
+    function relacher(a) {
+      if (a.minuteur) return;
+      var t0 = performance.now();
+      function pas(t) {
+        if (a.passe) { a.minuteur = null; return; }
+        a.p = Math.max(0, a.p - (t - t0) / 1000 * FUITE);
+        t0 = t;
+        afficher(a);
+        a.minuteur = a.p > 0 ? requestAnimationFrame(pas) : null;
+      }
+      a.minuteur = requestAnimationFrame(pas);
+    }
+    function pousser(a, dp) {
+      a.p += dp; afficher(a);
+      if (a.p >= 0.999) passer(a); else relacher(a);
+    }
+    function passer(a) {
+      a.passe = true; a.p = 1; afficher(a);
+      a.fin.classList.add('passe');
+      liberer(1500);
+      a.suivant.scrollIntoView({ behavior: reduit ? 'auto' : 'smooth', block: 'start' });
+    }
+    function buter(a, l) {
+      window.scrollTo({ top: l, behavior: 'instant' });
+      a.dernier = Date.now(); a.pret = false;
+    }
+
+    // molette et pavé tactile
+    window.addEventListener('wheel', function (e) {
+      if (estLibre() || e.deltaY <= 0 || e.ctrlKey) return;
+      var dy = e.deltaY * (e.deltaMode === 1 ? 40 : e.deltaMode === 2 ? window.innerHeight : 1);
+      var y = window.scrollY, d = devant(y);
+      if (!d) return;
+      if (y < d.l - 2) {
+        if (y + dy <= d.l) return;           // l'arrêt n'est pas encore atteint
+        e.preventDefault(); buter(d.a, d.l);
+        return;
+      }
+      e.preventDefault();
+      var t = Date.now();
+      if (t - d.a.dernier > PAUSE) d.a.pret = true;
+      d.a.dernier = t;
+      if (d.a.pret) pousser(d.a, dy / SEUIL_MOLETTE);
+    }, { passive: false });
+
+    // clavier : trois pressions rapprochées sur Page suivante ou Espace
+    window.addEventListener('keydown', function (e) {
+      if (estLibre() || e.altKey || e.ctrlKey || e.metaKey) return;
+      var k = e.key;
+      var poids = (k === 'PageDown' || k === 'End' || (k === ' ' && !e.shiftKey)) ? 1 / 3 : k === 'ArrowDown' ? 1 / 6 : 0;
+      if (!poids) return;
+      if (k === ' ' && e.target.closest && e.target.closest('button, summary, input, textarea, select')) return;
+      var y = window.scrollY, d = devant(y);
+      if (!d || y < d.l - 2) return;
+      e.preventDefault();
+      // on compte les pressions des 1,2 dernières secondes (la fuite serait trop sévère ici)
+      var t = Date.now(), a = d.a;
+      a.frappes = (a.frappes || []).filter(function (f) { return t - f.t < 1200; });
+      a.frappes.push({ t: t, w: poids });
+      var somme = a.frappes.reduce(function (s, f) { return s + f.w; }, 0);
+      a.p = Math.max(a.p, somme);
+      pousser(a, 0);
+    });
+
+    // doigt : un long glissé vers le haut une fois arrivé à l'arrêt
+    var depart = null;
+    window.addEventListener('touchstart', function () { depart = null; }, { passive: true });
+    window.addEventListener('touchmove', function (e) {
+      if (estLibre() || e.touches.length !== 1 || !e.cancelable) return;
+      var y = window.scrollY, d = devant(y);
+      if (!d || y < d.l - 2) { depart = null; return; }
+      var cy = e.touches[0].clientY;
+      if (depart === null) depart = cy;
+      var tire = depart - cy;                // > 0 : le doigt monte, la page voudrait descendre
+      if (tire <= 0) return;
+      e.preventDefault();
+      if (d.a.minuteur) { cancelAnimationFrame(d.a.minuteur); d.a.minuteur = null; }
+      d.a.p = tire / SEUIL_DOIGT; afficher(d.a);
+      if (d.a.p >= 1) passer(d.a);
+    }, { passive: false });
+    window.addEventListener('touchend', function () {
+      depart = null;
+      liste.forEach(function (a) { if (!a.passe && a.p) relacher(a); });
+    }, { passive: true });
+
+    // filet de sécurité : élan inertiel, barre de défilement, touche Fin…
+    var dernierY = window.scrollY;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY;
+      if (estLibre()) { prolonger(); dernierY = y; return; }  // prolonge tant que ça défile, dans la limite du plafond
+      if (y > dernierY) {
+        for (var i = 0; i < liste.length; i++) {
+          var a = liste[i];
+          if (a.passe) continue;
+          var l = limite(a);
+          if (dernierY <= l + 2 && y > l + 2) { buter(a, l); y = l; break; }
+        }
+      }
+      dernierY = y;
+    }, { passive: true });
+
+    // liens internes (menu, cartes, appels de note, bouton « Épisode suivant ») : passage libre
+    document.addEventListener('click', function (e) {
+      var lien = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!lien) return;
+      liberer(1500);
+      var fin = lien.closest('.fin-ep');
+      liste.forEach(function (a) {
+        if (a.fin === fin) { a.passe = true; a.p = 1; afficher(a); a.fin.classList.add('passe'); }
+      });
+    }, true);
+  }
+
+  /* ------------------------------------------------------------------ */
   /* Compteur de mots de la composante écrite (plafond : 4 000)            */
   /* ------------------------------------------------------------------ */
   function compteMots() {
@@ -433,11 +587,14 @@
   visionneuse();
   navigation();
   revelations();
+  arrets();
 
   // Lien profond (#ep3…) : on rejoint la cible une fois la page et les graphiques en place.
   if (location.hash.length > 1) {
+    liberer(4000);
     window.addEventListener('load', function () {
       var cible = document.getElementById(location.hash.slice(1));
+      liberer(1500);
       if (cible) cible.scrollIntoView({ behavior: 'instant', block: 'start' });
     });
   }

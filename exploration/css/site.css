@@ -545,7 +545,43 @@ details.donnees td.nb { font-family: var(--f-mono); text-align: right; }
 .verdict p.grand b { color: var(--rouge); font-weight: 400; }
 .verdict p.sous { margin: 18px auto 0; max-width: 60ch; color: var(--texte); }
 
-.suivant { display: flex; justify-content: center; margin-top: 60px; }
+/* ==========================================================================
+   ARRÊT DE FIN D'ÉPISODE
+   --p (0 → 1) : la pression exercée pour forcer le passage, posée par site.js
+   ========================================================================== */
+.fin-ep {
+  --p: 0;
+  position: relative; min-height: 100vh; min-height: 100svh;
+  display: grid; place-items: center; padding: 80px var(--gouttiere) 60px; text-align: center; overflow: hidden;
+  background: radial-gradient(ellipse 60% 50% at 50% 55%, rgba(229,9,20,.12), transparent 70%), var(--noir);
+  border-top: 1px solid var(--trait);
+}
+.fin-ep__carte {
+  max-width: 620px; display: grid; justify-items: center;
+  transform: translateY(calc(var(--p) * -18px)) scale(calc(1 - var(--p) * .015));
+  transition: transform .25s var(--ease);
+}
+.fin-ep__fin { margin: 0 0 26px; font: 500 12px/1 var(--f-mono); letter-spacing: .3em; text-transform: uppercase; color: var(--gris-2); }
+.fin-ep__vignette {
+  position: relative; width: min(300px, 70vw); aspect-ratio: 16 / 9; border-radius: 6px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,.6), 0 0 0 1px var(--trait);
+}
+.fin-ep__vignette > span {
+  position: absolute; right: -2%; bottom: -22%; font: 400 170px/1 var(--f-titre);
+  color: transparent; -webkit-text-stroke: 2px rgba(255,255,255,.25);
+}
+.fin-ep__asuivre { margin: 26px 0 0; font: 600 12px/1 var(--f-mono); letter-spacing: .3em; text-transform: uppercase; color: var(--rouge-vif); }
+.fin-ep__titre { margin: 10px 0 10px; font: 400 clamp(48px, 7vw, 88px)/.9 var(--f-titre); color: var(--blanc); letter-spacing: .01em; }
+.fin-ep__resume { margin: 0 0 26px; max-width: 44ch; font-size: 16px; line-height: 1.5; color: var(--gris); }
+.jauge { width: min(300px, 70vw); height: 4px; margin: 30px 0 12px; border-radius: 2px; background: var(--trait); overflow: hidden; }
+.jauge span { display: block; height: 100%; background: var(--rouge); transform-origin: left; transform: scaleX(var(--p)); transition: transform .12s linear; }
+.fin-ep__aide { margin: 0; font: 500 11.5px/1.4 var(--f-mono); letter-spacing: .08em; color: var(--gris-2); }
+.fin-ep__aide .doigt { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .fin-ep__aide .souris { display: none; }
+  .fin-ep__aide .doigt { display: inline; }
+}
+.fin-ep.passe .jauge, .fin-ep.passe .fin-ep__aide { visibility: hidden; }
 
 /* ==========================================================================
    GÉNÉRIQUE DE FIN
@@ -606,6 +642,7 @@ details.donnees td.nb { font-family: var(--f-mono); text-align: right; }
   .intro__titre { opacity: 1; letter-spacing: 0; filter: none; transform: none; }
   .apparait, .tuile, .carton h2 { opacity: 1; transform: none; }
   .barres__barre { transform: none; }
+  .fin-ep__carte { transform: none; }
 }
 @media (forced-colors: active) {
   .barres__barre, .tuile::before, .nuage .point { forced-color-adjust: none; }

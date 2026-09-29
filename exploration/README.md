@@ -44,6 +44,11 @@ pas. Le même total s'affiche en bas du site.
 
 **Publier les vrais résultats du sondage** : voir la fin de `QUESTIONNAIRE.md`.
 
+**Régler la résistance des arrêts de fin d'épisode** : dans `js/site.js`, fonction `arrets()`.
+`SEUIL_MOLETTE` (défilement cumulé nécessaire), `SEUIL_DOIGT` (longueur du glissé sur
+téléphone) et `FUITE` (vitesse à laquelle la jauge se vide) : plus ils sont grands, plus il
+faut insister. Le menu du haut et les boutons passent toujours sans résistance.
+
 **Après une modification de CSS ou de JS**, augmenter le numéro `?v=` dans les trois balises
 qui les chargent en bas et en haut de `index.html`, pour que les navigateurs ne gardent pas
 l'ancienne version en cache.
