@@ -12,7 +12,7 @@ construction. GitHub Pages le publie tel quel depuis ce dossier.
 
 | Fichier | Rôle |
 |---|---|
-| `index.html` | Toute la page : générique, court-métrage, catalogue, 5 épisodes (Introduction, Question de recherche, Analyse, Corpus, Lectures & sources), générique de fin |
+| `index.html` | Toute la page : générique, court-métrage, catalogue, 6 épisodes (Introduction, Question de recherche, Analyse, Corpus, Lectures & sources, Conclusion), générique de fin |
 | `css/site.css` | Styles. Les couleurs et polices sont définies une seule fois, en haut (`:root`) |
 | `js/data.js` | **Toutes les données chiffrées.** Pour modifier un graphique, c'est ici |
 | `js/site.js` | Comportements : générique, navigation, animations, dessin des graphiques |
