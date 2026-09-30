@@ -738,6 +738,8 @@ figcaption, .graphe__src, .chaine figcaption { text-align: center; }
 .biblio li::before { position: static; display: block; margin: 0 auto 2px; }
 .question-label { margin: 0 0 14px; text-align: center; font: 600 12px/1.4 var(--f-mono); letter-spacing: .3em; text-transform: uppercase; color: var(--rouge-vif); }
 .problematique { margin-top: 0; }
+.reponses { max-width: 62ch; margin: 30px auto 10px; }
+.reponses li strong { color: var(--rouge-vif); }
 /* placé après les règles de centrage pour avoir le dernier mot */
 body .prose p, .verdict p.sous, .encadre p, .fiche dd, .oeuvre p,
 .hypotheses li, .tension p, figcaption, .synopsis, .affiche__intro, .affiche__appel,
