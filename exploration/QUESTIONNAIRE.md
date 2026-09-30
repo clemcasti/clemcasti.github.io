@@ -17,7 +17,7 @@ Durée : environ 3 minutes. Anonyme.
 
 **Introduction à afficher en tête du formulaire**
 
-> Bonjour ! Nous sommes Clémence et Ninon, et nous menons une petite enquête sur
+> Bonjour ! Nous sommes deux étudiantes, et nous menons une petite enquête sur
 > l'intelligence artificielle dans le cinéma pour un projet universitaire. Le questionnaire
 > est anonyme et prend environ 3 minutes. Merci beaucoup !
 

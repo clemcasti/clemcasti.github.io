@@ -1,6 +1,6 @@
 # Le paradoxe des nouvelles technologies sur l'industrie du cinéma
 
-Exploration numérique de **Clémence Castillo et Ninon** : l'intelligence artificielle va-t-elle
+Exploration numérique de **Clémence Castillo** : l'intelligence artificielle va-t-elle
 remplacer les artistes du cinéma, ou transformer leur manière de créer ?
 
 En ligne : <https://clemcasti.github.io/exploration/>
@@ -69,7 +69,7 @@ Une fois les réponses reçues :
     <div class="graphe large apparait" style="max-width:900px" data-anime>
       <div class="graphe__tete" data-compte><div><h4>Ce qu'en pensent des étudiants cinéphiles</h4><p class="graphe__sous">Questionnaire en ligne · répondants&nbsp;: <span id="sondage-n">en cours</span></p></div></div>
       <div id="g-sondage"></div>
-      <p class="graphe__src">Source&nbsp;: sondage réalisé par Clémence et Ninon, 2026.</p>
+      <p class="graphe__src">Source&nbsp;: notre sondage, 2026.</p>
     </div>
 ```
 
