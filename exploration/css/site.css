@@ -720,9 +720,7 @@ details.donnees td.nb { font-family: var(--f-mono); text-align: right; }
 .prose p { margin-left: auto; margin-right: auto; }
 /* paragraphes justifiés : le texte est aligné des deux côtés (demande de Clémence),
    avec coupure des mots en français pour éviter les grands blancs entre les mots */
-.prose p, .verdict p.sous, .encadre p, .fiche dd, .oeuvre p {
-  text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: wrap;
-}
+
 .rangee h2 { text-align: center; }
 figcaption, .graphe__src, .chaine figcaption { text-align: center; }
 .ecran__legende { flex-direction: column; align-items: center; text-align: center; }
@@ -740,6 +738,12 @@ figcaption, .graphe__src, .chaine figcaption { text-align: center; }
 .biblio li::before { position: static; display: block; margin: 0 auto 2px; }
 .question-label { margin: 0 0 14px; text-align: center; font: 600 12px/1.4 var(--f-mono); letter-spacing: .3em; text-transform: uppercase; color: var(--rouge-vif); }
 .problematique { margin-top: 0; }
+/* placé après les règles de centrage pour avoir le dernier mot */
+body .prose p, .verdict p.sous, .encadre p, .fiche dd, .oeuvre p,
+.hypotheses li, .tension p, figcaption, .synopsis, .affiche__intro, .affiche__appel,
+.graphe__sous, .ecran__legende span, .biblio li, .carton__accroche, .fin-ep__resume, .carte__resume {
+  text-align: justify; hyphens: auto; -webkit-hyphens: auto; text-wrap: wrap;
+}
 
 /* frise centrée : pastille, année, texte, puis un trait vers l'étape suivante */
 .frise { padding: 0; max-width: 620px; margin: 0 auto; }
