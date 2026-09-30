@@ -751,6 +751,7 @@ figcaption, .graphe__src, .chaine figcaption { text-align: center; }
 
 /* corpus : les études et les œuvres */
 .oeuvres { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); }
+.oeuvres--2 { grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); max-width: 1000px; }
 .oeuvre { padding: 22px; border-radius: 8px; background: var(--surface); border: 1px solid var(--trait); text-align: center; transition: border-color .25s, transform .3s var(--ease); }
 .oeuvre:hover { border-color: #45454d; transform: translateY(-3px); }
 .oeuvre__annee { font: 600 11px/1 var(--f-mono); letter-spacing: .2em; text-transform: uppercase; color: var(--rouge-vif); }
