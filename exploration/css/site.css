@@ -28,7 +28,7 @@
   --f-mono:  'JetBrains Mono', ui-monospace, Menlo, monospace;
 
   --gouttiere: clamp(16px, 4vw, 56px);
-  --perfo: 30px;                       /* largeur des bandes perforées */
+  --perfo: 34px;                       /* largeur des bandes perforées, comme l'ancien site */
   --lecture: 68ch;
   --ease: cubic-bezier(.2,.7,.2,1);
 }
@@ -56,17 +56,18 @@ button { font: inherit; color: inherit; cursor: pointer; }
    ========================================================================== */
 body::before, body::after {
   content: ""; position: absolute; top: 0; bottom: 0; width: var(--perfo); z-index: 60; pointer-events: none;
-  background-color: #030303;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30'%3E%3Crect x='8' y='7' width='14' height='16' rx='3' fill='%232e2e33'/%3E%3Crect x='8.5' y='7.5' width='13' height='3' rx='1.5' fill='%233c3c43'/%3E%3C/svg%3E");
-  background-size: var(--perfo) var(--perfo); background-repeat: repeat-y;
+  background-color: #000;
+  /* même géométrie que l'ancien site (trous de 16 × 20 px tous les 34 px), en rouge sur noir */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='34' height='34'%3E%3Crect x='9' y='7' width='16' height='20' rx='4' fill='%23b20710'/%3E%3Crect x='10' y='8' width='14' height='5' rx='2.5' fill='%23e50914'/%3E%3C/svg%3E");
+  background-size: var(--perfo) var(--perfo); background-repeat: repeat-y; background-position: center top;
 }
-body::before { left: 0; box-shadow: inset -1px 0 0 rgba(255,255,255,.07); }
-body::after { right: 0; box-shadow: inset 1px 0 0 rgba(255,255,255,.07); }
+body::before { left: 0; box-shadow: inset -1px 0 0 rgba(229,9,20,.35), inset 1px 0 0 rgba(0,0,0,.7); }
+body::after { right: 0; box-shadow: inset 1px 0 0 rgba(229,9,20,.35), inset -1px 0 0 rgba(0,0,0,.7); }
 @media (max-width: 720px) {
-  :root { --perfo: 14px; }
+  :root { --perfo: 22px; }
   body::before, body::after {
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='16'%3E%3Crect x='3.5' y='4' width='7' height='8' rx='1.6' fill='%232e2e33'/%3E%3C/svg%3E");
-    background-size: 14px 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='22' height='22'%3E%3Crect x='6' y='4.5' width='10' height='13' rx='2.6' fill='%23b20710'/%3E%3Crect x='6.7' y='5.2' width='8.6' height='3.2' rx='1.6' fill='%23e50914'/%3E%3C/svg%3E");
+    background-size: 22px 22px;
   }
 }
 @media print { body { padding: 0; } body::before, body::after { display: none; } }
@@ -80,6 +81,9 @@ body::after { right: 0; box-shadow: inset 1px 0 0 rgba(255,255,255,.07); }
   transition: opacity .6s ease, visibility .6s;
 }
 .intro.fini { opacity: 0; visibility: hidden; }
+.sans-intro .intro { display: none; }
+/* l'animation attend la police du titre (classe .pret posée par site.js), pour ne pas sauter */
+.intro:not(.pret) .intro__barres span, .intro:not(.pret) .intro__titre { animation-play-state: paused; }
 .intro__barres { position: absolute; inset: 0; display: flex; justify-content: center; gap: 2.2vw; }
 .intro__barres span {
   width: 3.2vw; height: 100%; transform: scaleY(0); transform-origin: top;
@@ -183,22 +187,26 @@ body::after { right: 0; box-shadow: inset 1px 0 0 rgba(255,255,255,.07); }
     repeating-linear-gradient(0deg, rgba(255,255,255,.025) 0 1px, transparent 1px 3px),
     radial-gradient(circle at 30% 30%, #2a2a33 0, #0d0d10 55%, #000 100%);
 }
-.affiche__titre {
-  display: block; font: 400 clamp(56px, 13vw, 170px)/.9 var(--f-titre);
-  color: var(--blanc); letter-spacing: .04em;
-}
-.affiche__titre em { font-style: normal; color: var(--rouge); }
+.affiche { align-content: center; gap: clamp(14px, 2.4vw, 26px); padding: clamp(20px, 4vw, 56px); cursor: pointer; }
+.affiche__texte { display: grid; gap: clamp(10px, 1.6vw, 18px); justify-items: center; max-width: 52ch; }
 .affiche__meta {
-  display: block; margin-top: 10px; font: 500 clamp(10px, 1.3vw, 13px)/1.5 var(--f-mono);
-  letter-spacing: .25em; text-transform: uppercase; color: var(--gris);
+  display: block; font: 500 clamp(10px, 1.2vw, 12.5px)/1.5 var(--f-mono);
+  letter-spacing: .25em; text-transform: uppercase; color: var(--rouge-vif);
 }
+.affiche__intro { display: block; font: 500 clamp(15px, 1.75vw, 21px)/1.5 var(--f-texte); color: var(--blanc); text-wrap: balance; }
+.affiche__appel { display: block; font: 600 clamp(13px, 1.4vw, 16px)/1.45 var(--f-texte); color: var(--gris); }
 .affiche__lecture {
-  position: absolute; left: 50%; bottom: 12%; transform: translateX(-50%);
   display: inline-flex; align-items: center; gap: 12px;
   padding: 12px 26px; border-radius: 4px; background: var(--blanc); color: var(--noir);
   font: 700 16px/1 var(--f-texte); transition: background .2s, transform .2s;
 }
-.affiche:hover .affiche__lecture { background: #dcdcdc; transform: translateX(-50%) scale(1.04); }
+.affiche:hover .affiche__lecture { background: #dcdcdc; transform: scale(1.04); }
+/* sur petit écran, le texte ne tient pas dans un cadre 16/9 : le cadre prend la hauteur du texte
+   jusqu'au lancement de la vidéo (classe .lecture posée par site.js) */
+@media (max-width: 720px) {
+  .ecran:not(.lecture) { aspect-ratio: auto; }
+  .ecran:not(.lecture) .affiche { position: relative; }
+}
 .triangle { width: 0; height: 0; border-style: solid; border-width: 8px 0 8px 13px; border-color: transparent transparent transparent currentColor; }
 .ecran__legende {
   width: min(1100px, 100%, (100svh - 300px) * 16 / 9); min-width: min(100%, 320px);
@@ -762,7 +770,7 @@ figcaption, .graphe__src, .chaine figcaption { text-align: center; }
     url('../img/esec-luke-2.webp') 38% center / cover no-repeat; }
   .barres__ligne { grid-template-columns: 1fr; gap: 4px; }
   .barres__nom { text-align: left; }
-  .affiche__lecture { bottom: 8%; padding: 10px 18px; font-size: 14px; }
+  .affiche__lecture { padding: 10px 18px; font-size: 14px; }
   .ecran__legende { margin-top: -8px; }
 }
 

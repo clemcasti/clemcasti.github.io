@@ -6,6 +6,10 @@
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
   var reduit = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // Au rechargement, on repart du court-métrage plutôt que de la position restaurée
+  // par le navigateur (qui pourrait buter sur un arrêt de fin d'épisode).
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   var nf = new Intl.NumberFormat('fr-FR');
 
   // Défilement voulu (lien interne, bouton, lien profond) : les arrêts de fin d'épisode
@@ -39,9 +43,7 @@
   function generique() {
     var intro = $('#intro');
     if (!intro) return;
-    var force = /[?&]intro=1/.test(location.search);
-    var ancre = location.hash && location.hash !== '#projection';
-    if ((stockage('get', 'intro-vue') || ancre) && !force) { intro.remove(); return; }
+    if (document.documentElement.classList.contains('sans-intro')) { intro.remove(); return; }
 
     document.body.classList.add('verrou');
     var fini = false;
@@ -59,7 +61,22 @@
     function clavier(e) { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') terminer(); }
     $('#intro-passer').addEventListener('click', terminer);
     document.addEventListener('keydown', clavier);
-    setTimeout(terminer, reduit ? 1400 : 3900);
+
+    // On lance l'animation une fois la police du titre chargée (1,5 s au plus),
+    // sinon le titre change de police en plein mouvement.
+    var lance = false;
+    function lancer() {
+      if (lance) return;
+      lance = true;
+      intro.classList.add('pret');
+      setTimeout(terminer, reduit ? 1400 : 3900);
+    }
+    if (document.fonts && document.fonts.load) {
+      document.fonts.load('400 1em "Bebas Neue"').then(lancer, lancer);
+      setTimeout(lancer, 1500);
+    } else {
+      lancer();
+    }
   }
 
   /* ------------------------------------------------------------------ */
@@ -77,6 +94,8 @@
         allow: 'autoplay; encrypted-media; picture-in-picture; fullscreen',
         allowfullscreen: ''
       });
+      var ecran = $('#ecran');
+      if (ecran) ecran.classList.add('lecture');
       affiche.replaceWith(f);
       f.focus();
     });
